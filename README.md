@@ -1,2 +1,2 @@
-fail2ban
+openmediavault-fail2ban
 ========
