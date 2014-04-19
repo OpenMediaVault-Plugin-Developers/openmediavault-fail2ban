@@ -70,6 +70,41 @@ Ext.define("OMV.module.admin.service.fail2ban.Settings", {
         sortable  : false,
         dataIndex : "jailMaxRetry",
         stateId   : "jailMaxRetry"
+    },{
+        text      : _("Ban Time"),
+        sortable  : false,
+        dataIndex : "jailBanTime",
+        stateId   : "jailBanTime"
+    },{
+        text      : _("Action"),
+        sortable  : false,
+        dataIndex : "jailAction",
+        stateId   : "jailAction"
+    },{
+        text      : _("Ban Action"),
+        sortable  : false,
+        dataIndex : "jailBanAction",
+        stateId   : "jailBanAction"
+    },{
+        text      : _("Destination Email"),
+        sortable  : false,
+        dataIndex : "jailDesteMail",
+        stateId   : "jailDesteMail"
+    },{
+        text      : _("Ignore IP"),
+        sortable  : false,
+        dataIndex : "jailIgnoreIP",
+        stateId   : "jailIgnoreIP"
+    },{
+        text      : _("Filter"),
+        sortable  : false,
+        dataIndex : "jailFilter",
+        stateId   : "jailFilter"
+    },{
+        text      : _("Log Path"),
+        sortable  : false,
+        dataIndex : "jailLogPath",
+        stateId   : "jailLogPath"
     }],
 
     initComponent : function () {
@@ -94,6 +129,27 @@ Ext.define("OMV.module.admin.service.fail2ban.Settings", {
                         type : "string"
                     },{
                         name : "jailMaxRetry",
+                        type : "string"
+                    },{
+                        name : "jailBanTime",
+                        type : "string"
+                    },{
+                        name : "jailAction",
+                        type : "string"
+                    },{
+                        name : "jailBanAction",
+                        type : "string"
+                    },{
+                        name : "jailDesteMail",
+                        type : "string"
+                    },{
+                        name : "jailIgnoreIP",
+                        type : "string"
+                    },{
+                        name : "jailFilter",
+                        type : "string"
+                    },{
+                        name : "jailLogPath",
                         type : "string"
                     }]
 
