@@ -22,4 +22,54 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+FAIL2BAN_CONFIG="/etc/fail2ban/jail.conf"
+OMV_FAIL2BAN_PLUGIN_XPATH="//services/fail2ban"
 
+# Generate configuration only if the service is enabled.
+if [ "$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/enable")" != "1" ]; then
+	exit 0
+fi
+
+# Get settings.
+ignoreip=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/ignoreip")
+findtime=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/findtime")
+bantime=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/bantime")
+maxretry=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/maxretry")
+destemail=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/destemail") 
+action=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/action") 
+
+cat <<EOF > ${FAIL2BAN_CONFIG}
+# this file was automatically generated
+
+[DEFAULT]
+
+# "ignoreip" can be an IP address, a CIDR mask or a DNS host
+ignoreip = ${ignoreip}
+findtime = ${findtime}
+bantime  = ${bantime}
+maxretry = ${maxretry}
+backend = auto
+destemail = ${destemail}
+
+banaction = iptables-multiport
+mta = sendmail
+protocol = tcp
+chain = INPUT
+
+action_mwl = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
+               %(mta)s-whois-lines[name=%(__name__)s, dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
+
+action = %(${action})s
+
+[ssh]
+
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 6
+
+
+EOF
+
+exit 0
