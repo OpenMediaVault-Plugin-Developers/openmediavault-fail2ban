@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# @license		http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @license      http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author       OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 # @copyright    Copyright (c) 2014 OpenMediaVault Plugin Developers
 #
@@ -22,54 +22,41 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-FAIL2BAN_CONFIG="/etc/fail2ban/jail.conf"
 OMV_FAIL2BAN_PLUGIN_XPATH="//services/fail2ban"
+
+OMV_FAIL2BAN_CONFIG=${OMV_FAIL2BAN_CONFIG:-"/etc/fail2ban/jail.conf.test"}
+OMV_FAIL2BAN_BACKEND=${OMV_FAIL2BAN_BACKEND:-"auto"}
+OMV_FAIL2BAN_BANACTION=${OMV_FAIL2BAN_BANACTION:-"iptables-multiport"}
+OMV_FAIL2BAN_MTA=${OMV_FAIL2BAN_MTA:-"sendmail"}
+OMV_FAIL2BAN_PROTOCOL=${OMV_FAIL2BAN_PROTOCOL:-"tcp"}
+OMV_FAIL2BAN_CHAIN=${OMV_FAIL2BAN_CHAIN:-"INPUT"}
+
 
 # Generate configuration only if the service is enabled.
 if [ "$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/enable")" != "1" ]; then
 	exit 0
 fi
 
-# Get settings.
-ignoreip=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/ignoreip")
-findtime=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/findtime")
-bantime=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/bantime")
-maxretry=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/maxretry")
-destemail=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/destemail") 
-action=$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/action") 
-
-cat <<EOF > ${FAIL2BAN_CONFIG}
-# this file was automatically generated
-
-[DEFAULT]
-
-# "ignoreip" can be an IP address, a CIDR mask or a DNS host
-ignoreip = ${ignoreip}
-findtime = ${findtime}
-bantime  = ${bantime}
-maxretry = ${maxretry}
-backend = auto
-destemail = ${destemail}
-
-banaction = iptables-multiport
-mta = sendmail
-protocol = tcp
-chain = INPUT
-
-action_mwl = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
-               %(mta)s-whois-lines[name=%(__name__)s, dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
-
-action = %(${action})s
-
-[ssh]
-
-enabled  = true
-port     = ssh
-filter   = sshd
-logpath  = /var/log/auth.log
-maxretry = 6
-
-
-EOF
-
-exit 0
+# Create jail.conf
+xmlstarlet sel -t \
+    -o "[DEFAULT]" -n \
+    -m "${OMV_FAIL2BAN_PLUGIN_XPATH}" \
+          -v "concat('ignoreip = ',ignoreip)" -n \
+          -v "concat('fintime = ',findtime)" -n \
+          -v "concat('banime = ',bantime)" -n \
+          -v "concat('maxretry = ',maxretry)" -n \
+          -v "concat('destemail = ',destemail)" -n \
+    -o "backend = ${OMV_FAIL2BAN_BACKEND}" -n \
+    -o "banaction = ${OMV_FAIL2BAN_BANACTION}" -n \
+    -o "mta = ${OMV_FAIL2BAN_MTA}" -n \
+    -o "protocol = ${OMV_FAIL2BAN_PROTOCOL}" -n \
+    -o "chain = ${OMV_FAIL2BAN_CHAIN}" -n \
+    -o "action_ = %(banaction)s[name=%(__name__)s, port=\"%(port)s\", protocol=\"%(protocol)s\", chain=\"%(chain)s\"]" -n \
+    -o "action_mw = %(banaction)s[name=%(__name__)s, port=\"%(port)s\", protocol=\"%(protocol)s\", chain=\"%(chain)s\"]" -n \
+    -o "              %(mta)s-whois[name=%(__name__)s, dest=\"%(destemail)s\", protocol=\"%(protocol)s\", chain=\"%(chain)s\", sendername=\"%(sendername)s\"]" -n \
+    -o "action_mwl = %(banaction)s[name=%(__name__)s, port=\"%(port)s\", protocol=\"%(protocol)s\", chain=\"%(chain)s\"]" -n \
+    -o "               %(mta)s-whois-lines[name=%(__name__)s, dest=\"%(destemail)s\", logpath=%(logpath)s, chain=\"%(chain)s\", sendername=\"%(sendername)s\"]" -n \
+    -m "${OMV_FAIL2BAN_PLUGIN_XPATH}" \
+          -v "concat('action = %(',action,')s')" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_FAIL2BAN_CONFIG}
