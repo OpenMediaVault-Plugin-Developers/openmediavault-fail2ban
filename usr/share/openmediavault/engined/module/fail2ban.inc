@@ -23,8 +23,9 @@ require_once "openmediavault/error.inc";
 require_once "openmediavault/util.inc";
 require_once "openmediavault/initscript.inc";
 
+
 class OMVModuleFail2ban extends OMVModuleServiceAbstract
-    implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf
+    implements OMVINotifyListener, OMVIModuleServiceStatus
 {
     private function getPluginName()
     {
@@ -114,18 +115,6 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
         $initd->exec();
     }
 
-
-    /**
-     * Get the Zeroconf service configuration.
-     */
-    public function getZeroconfConfig() {
-        return array(
-	    "id" => "fail2ban",
-	    "title" => gettext("Fail2Ban")
-		    );
-    }
-
-
     /**
      * Bind listeners.
      */
@@ -135,14 +124,11 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
             OMV_NOTIFY_MODIFY,
             $this->getEventMessagePath(),
             array($this, "setDirty"));
+
         $dispatcher->addListener(
-            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-            "org.openmediavault.services.fail2ban.jails.jail",
-            array($this, "setDirty"));
-        $dispatcher->addListener(
-            OMV_NOTIFY_MODIFY,
-	    "org.openmediavault.services.fail2ban",
-	    array($moduleMgr->getModule("zeroconf"), "setDirty"));
+	    OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+	    "org.openmediavault.services.fail2ban.jails.jail",
+	    array($this, "setDirty"));
     }
 }
 

@@ -29,8 +29,7 @@
 Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 	extend: "OMV.workspace.window.Form",
 	requires: [
-	    "OMV.workspace.window.plugin.ConfigObject",
-		"OMV.window.Execute"
+                   "OMV.workspace.window.plugin.ConfigObject"
 	],
 
 	rpcService: "Fail2ban",
@@ -39,8 +38,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	width: 700,
-	height: 400,
 
 	/**
 	 * The class constructor.
@@ -49,7 +46,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 	 */
 
 	getFormItems: function() {
-		var me = this;
 		return [{
 			xtype: "checkbox",
 			name: "enable",
@@ -60,7 +56,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "name",
 			fieldLabel: _("Name"),
 			allowBlank: false,
-			vtype: "name",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The name of the jail.")
@@ -70,7 +65,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "port",
 			fieldLabel: _("Port"),
 			allowBlank: false,
-			vtype: "port",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The port of the jail.")
@@ -80,7 +74,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "maxretry",
 			fieldLabel: _("Max Retry"),
                         allowBlank: false,
-                        vtype: "maxretry",
                         plugins: [{
                                 ptype: "fieldinfo",
                                 text: _("Max Retry in seconds.")
@@ -90,7 +83,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
                         name: "bantime",
                         fieldLabel: _("Ban Time"),
                         allowBlank: false,
-                        vtype: "bantime",
                         plugins: [{
                                 ptype: "fieldinfo",
                                 text: _("Ban time in seconds.")
@@ -101,7 +93,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
                         name: "filter",
                         fieldLabel: _("Filter"),
                         allowBlank: false,
-                        vtype: "filter",
                         plugins: [{
                                 ptype: "fieldinfo",
                                 text: _("A filter defines a regular expression which must match a pattern corresponding to a log-in failure or any other expression.")
@@ -110,8 +101,7 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
                         xtype: "textfield",
                         name: "logpath", 
                         fieldLabel: _("Log Path"), 
-                        allowBlank: false,
-                        vtype: "logpath", 
+                        allowBlank: false, 
                         plugins: [{
                                 ptype: "fieldinfo",
                                 text: _("The log file to be scanned by the filter.") 
@@ -138,32 +128,26 @@ Ext.define("OMV.module.admin.service.fail2ban.Jails", {
         "OMV.modules.admin.service.fail2ban.Jail"
     ],
 
-    hideAddButton       : false,
-    hideEditButton      : false,
-    hideUpButton        : true,
-    hideDownButton      : true,
-    hideApplyButton     : false,
-    hideRefreshButton   : false,
 
     hidePagingToolbar : false,
     stateful          : true,
-    stateId           : "a982a76d-e8a5-4a65-d841-5748da327abd",
+    stateId           : "a982a76d-e8a5-4a65-d800-5748da327abd",
     columns         : [{
-        text      : _("Jail Name"),
-        sortable  : true,
-        dataIndex : "name",
-        stateId   : "name"
-    },{
         xtype     : "booleaniconcolumn",
         text      : _("Enabled"),
-        sortable  : false,
-        dataIndex : "enabled",
-        stateId   : "enabled",
+        sortable  : true,
+        dataIndex : "enable",
+        stateId   : "enable",
         align     : "center",
         with      : 80,
         resizable : false,
         trueIcon  : "switch_on.png",
-        falseIcon: "switch_off.png"
+        falseIcon : "switch_off.png"
+    },{
+        text      : _("Name"),
+        sortable  : true,
+        dataIndex : "name",
+        stateId   : "name"
     },{
         text      : _("Port(s)"),
         sortable  : true,
@@ -193,20 +177,20 @@ Ext.define("OMV.module.admin.service.fail2ban.Jails", {
 
     initComponent : function () {
         var me = this;
-
         Ext.apply(me, {
             store : Ext.create("OMV.data.Store", {
                 autoLoad : true,
                 model    : OMV.data.Model.createImplicit({
                     idProperty : "uuid",
-                    fields     : [{
+                    fields     : [
+                    {
                         name : "uuid",
                         type : "string"
                     },{
                         name : "name",
                         type : "string"
                     },{
-                        name : "enabled",
+                        name : "enable",
                         type : "string"
                     },{
                         name : "port",

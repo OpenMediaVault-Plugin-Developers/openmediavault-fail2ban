@@ -27,7 +27,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Settings", {
 
     getFormItems : function() {
         var me = this;
-
         return [{
             xtype    : "fieldset",
             title    : _("General settings"),
