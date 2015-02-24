@@ -48,7 +48,7 @@ case "$1" in
             object="${object}<bantime>-1</bantime>"
             object="${object}<filter>sshd</filter>"
             object="${object}<logpath>/var/log/auth.log</logpath>"
-            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
 
             object="<uuid>59650e01-5e07-4076-9b15-ce352f4b4356</uuid>"
             object="${object}<enable>0</enable>"
@@ -58,7 +58,7 @@ case "$1" in
             object="${object}<bantime>-1</bantime>"
             object="${object}<filter>sshd-ddos</filter>"
             object="${object}<logpath>/var/log/auth.log</logpath>"
-            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
 
             object="<uuid>645ae684-0950-4fcf-92fc-eba1b88775b1</uuid>"
             object="${object}<enable>0</enable>"
@@ -68,7 +68,7 @@ case "$1" in
             object="${object}<bantime>-1</bantime>"
             object="${object}<filter>apache-noscript</filter>"
             object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
-            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
             
             object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b60</uuid>"
             object="${object}<enable>0</enable>"
@@ -78,7 +78,7 @@ case "$1" in
             object="${object}<bantime>-1</bantime>"
             object="${object}<filter>apache-404</filter>"
             object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
-            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
 
             object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b60</uuid>"
             object="${object}<enable>0</enable>"
@@ -88,14 +88,16 @@ case "$1" in
             object="${object}<bantime>-1</bantime>"
             object="${object}<filter>proftpd</filter>"
             object="${object}<logpath>/var/log/proftpd/proftpd.log</logpath>"
-            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}"
-
-
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
 
         fi
 
-	# Restart service fail2ban
-	service fail2ban restart
+
+        if [ "$(omv_config_get ${SERVICE_XPATH}"/enable")" = 0 ]; then
+	    service fail2ban stop
+        else
+            service fail2ban start
+        fi
 
         # Activate package triggers. These triggers are only set during the
         # package installation.
