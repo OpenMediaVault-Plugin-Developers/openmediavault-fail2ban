@@ -1,10 +1,10 @@
 #!/bin/sh
 #
-# This file is part of OpenMediaVault-git.
+# This file is part of OpenMediaVault-fail2ban.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Marcel Beck <marcel.beck@mbeck.org>
-# @copyright Copyright (c) 2012 Marcel Beck
+# @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+# @copyright Copyright (c) 2014 OpenMediaVault Plugin Developers
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,31 +24,28 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_GIT_AUTHZ=${OMV_GIT_AUTHZ:-"/etc/git/authz"}
-OMV_GIT_CONFIG=${OMV_GIT_CONFIG:-"/etc/apache2/conf.d/omv-git"}
+case "$1" in
+        purge)
+                SERVICE_XPATH_NAME="fail2ban"
+                SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+        
+                if omv_config_exists "${SERVICE_XPATH}"; then
+                        omv_config_delete "${SERVICE_XPATH}"
+                fi
+	;;
 
-if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+	remove)
+	;;
+	
 
-	[ -f ${OMV_GIT_CONFIG} ] && /bin/rm -f ${OMV_GIT_CONFIG}
-	[ -f /etc/git/web.conf ] && /bin/rm -f /etc/git/web.conf
+        upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+        ;;
 
-	# Clean up after authz_external.. it doesn't disable itself
-	# on uninstallation. We have no choice but to disable it on our
-	# uninstallation. Otherwise OMV may fail to start apache2 on
-	# the next reboot / restart
-	[ -f /etc/apache2/mods-enabled/authnz_external.load ] && [ ! -f /etc/apache2/mods-available/authnz_external.load ] && a2dismod authnz_external
-
-	if [ "$1" = "purge" ]; then
-
-		[ -f ${OMV_GIT_AUTHZ} ] && /bin/rm -f ${OMV_GIT_AUTHZ}
-
-		# Check for XML config
-    	if omv_config_exists "//services/git"; then
-			xmlstarlet ed -P -L -d "//services/git" ${OMV_CONFIG_FILE}
-		fi
-
-	fi
-fi
+        *)
+                echo "postrm called with unknown argument \`$1'" >&2
+                exit 1
+        ;;
+esac
 
 #DEBHELPER#
 

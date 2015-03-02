@@ -17,9 +17,100 @@
 
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/workspace/window/Form.js")
+// require("js/omv/workspace/window/plugin/ConfigObject.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
+// require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/window/Execute.js")
+
+Ext.define("OMV.module.admin.service.fail2ban.Jail", {
+	extend: "OMV.workspace.window.Form",
+	requires: [
+                   "OMV.workspace.window.plugin.ConfigObject"
+	],
+
+	rpcService: "Fail2ban",
+	rpcGetMethod: "getJail",
+	rpcSetMethod: "setJail",
+	plugins: [{
+		ptype: "configobject"
+	}],
+
+	/**
+	 * The class constructor.
+	 * @fn constructor
+	 * @param uuid The UUID of the database/configuration object. Required.
+	 */
+
+	getFormItems: function() {
+		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: true
+		},{
+			xtype: "textfield",
+			name: "name",
+			fieldLabel: _("Name"),
+			allowBlank: false,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The name of the jail.")
+			}]
+		},{
+			xtype: "textfield",
+			name: "port",
+			fieldLabel: _("Port"),
+			allowBlank: false,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The port of the jail.")
+			}]
+		},{
+			xtype: "textfield",
+			name: "maxretry",
+			fieldLabel: _("Max Retry"),
+                        allowBlank: false,
+                        plugins: [{
+                                ptype: "fieldinfo",
+                                text: _("Max Retry in seconds.")
+                        }]
+                },{
+                        xtype: "textfield",
+                        name: "bantime",
+                        fieldLabel: _("Ban Time"),
+                        allowBlank: false,
+                        plugins: [{
+                                ptype: "fieldinfo",
+                                text: _("Ban time in seconds.")
+                        }]
+
+                },{
+                        xtype: "textfield",
+                        name: "filter",
+                        fieldLabel: _("Filter"),
+                        allowBlank: false,
+                        plugins: [{
+                                ptype: "fieldinfo",
+                                text: _("A filter defines a regular expression which must match a pattern corresponding to a log-in failure or any other expression.")
+                        }]
+                },{
+                        xtype: "textfield",
+                        name: "logpath", 
+                        fieldLabel: _("Log Path"), 
+                        allowBlank: false, 
+                        plugins: [{
+                                ptype: "fieldinfo",
+                                text: _("The log file to be scanned by the filter.") 
+                        }]
+		}];
+	}
+});
+
+
 
 /**
  * @class OMV.module.admin.service.fail2ban.Jails
@@ -34,122 +125,87 @@ Ext.define("OMV.module.admin.service.fail2ban.Jails", {
         "OMV.data.proxy.Rpc"
     ],
     uses : [
-        "OMV.window.MessageBox"
+        "OMV.modules.admin.service.fail2ban.Jail"
     ],
 
-    hideAddButton       : false,
-    hideEditButton      : false,
-    hideUpButton        : true,
-    hideDownButton      : true,
-    hideApplyButton     : false,
-    hideRefreshButton   : false,
 
     hidePagingToolbar : false,
     stateful          : true,
-    stateId           : "a982a76d-e8a5-4a65-d841-5748da327abd",
+    stateId           : "a982a76d-e8a5-4a65-d800-5748da327abd",
     columns         : [{
-        text      : _("Jail Name"),
-        sortable  : true,
-        dataIndex : "jailName",
-        stateId   : "jailName"
-    },{
+        xtype     : "booleaniconcolumn",
         text      : _("Enabled"),
-        sortable  : false,
-        dataIndex : "jailEnabled",
-        stateId   : "jailEnabled",
-        renderer  : function(value) {
-            return value ? "Yes" : "No";
-        }
+        sortable  : true,
+        dataIndex : "enable",
+        stateId   : "enable",
+        align     : "center",
+        with      : 80,
+        resizable : false,
+        trueIcon  : "switch_on.png",
+        falseIcon : "switch_off.png"
+    },{
+        text      : _("Name"),
+        sortable  : true,
+        dataIndex : "name",
+        stateId   : "name"
     },{
         text      : _("Port(s)"),
-        sortable  : false,
-        dataIndex : "jailPort",
-        stateId   : "jailPort"        
+        sortable  : true,
+        dataIndex : "port",
+        stateId   : "port"        
     },{
         text      : _("Max Retry"),
         sortable  : false,
-        dataIndex : "jailMaxRetry",
-        stateId   : "jailMaxRetry"
+        dataIndex : "maxretry",
+        stateId   : "maxretry"
     },{
         text      : _("Ban Time"),
         sortable  : false,
-        dataIndex : "jailBanTime",
-        stateId   : "jailBanTime"
-    },{
-        text      : _("Action"),
-        sortable  : false,
-        dataIndex : "jailAction",
-        stateId   : "jailAction"
-    },{
-        text      : _("Ban Action"),
-        sortable  : false,
-        dataIndex : "jailBanAction",
-        stateId   : "jailBanAction"
-    },{
-        text      : _("Destination Email"),
-        sortable  : false,
-        dataIndex : "jailDesteMail",
-        stateId   : "jailDesteMail"
-    },{
-        text      : _("Ignore IP"),
-        sortable  : false,
-        dataIndex : "jailIgnoreIP",
-        stateId   : "jailIgnoreIP"
+        dataIndex : "bantime",
+        stateId   : "bantime"
     },{
         text      : _("Filter"),
         sortable  : false,
-        dataIndex : "jailFilter",
-        stateId   : "jailFilter"
+        dataIndex : "filter",
+        stateId   : "filter"
     },{
         text      : _("Log Path"),
         sortable  : false,
-        dataIndex : "jailLogPath",
-        stateId   : "jailLogPath"
+        dataIndex : "logpath",
+        stateId   : "logpath"
     }],
 
     initComponent : function () {
         var me = this;
-
         Ext.apply(me, {
             store : Ext.create("OMV.data.Store", {
                 autoLoad : true,
                 model    : OMV.data.Model.createImplicit({
                     idProperty : "uuid",
-                    fields     : [{
+                    fields     : [
+                    {
                         name : "uuid",
                         type : "string"
                     },{
-                        name : "jailName",
+                        name : "name",
                         type : "string"
                     },{
-                        name : "jailEnabled",
+                        name : "enable",
                         type : "string"
                     },{
-                        name : "jailPort",
+                        name : "port",
                         type : "string"
                     },{
-                        name : "jailMaxRetry",
+                        name : "maxretry",
                         type : "string"
                     },{
-                        name : "jailBanTime",
+                        name : "bantime",
                         type : "string"
                     },{
-                        name : "jailAction",
+                        name : "filter",
                         type : "string"
                     },{
-                        name : "jailBanAction",
-                        type : "string"
-                    },{
-                        name : "jailDesteMail",
-                        type : "string"
-                    },{
-                        name : "jailIgnoreIP",
-                        type : "string"
-                    },{
-                        name : "jailFilter",
-                        type : "string"
-                    },{
-                        name : "jailLogPath",
+                        name : "logpath",
                         type : "string"
                     }]
 
@@ -158,21 +214,63 @@ Ext.define("OMV.module.admin.service.fail2ban.Jails", {
                     type    : "rpc",
                     rpcData : {
                         service : "Fail2ban",
-                        method  : "getJails"
+                        method  : "getJailList"
                     }
-                }
+                },
+                remoteSort : true,
+                sorters    : [{
+                               direction : "ASC",
+                               property  : "name"
+                }]
             })
         });
 
         me.callParent(arguments);
     },
 
-
-    doReload : function() {
+    onAddButton: function() {
         var me = this;
+        Ext.create("OMV.module.admin.service.fail2ban.Jail", {
+            title: _("Add jail"),
+            uuid: OMV.UUID_UNDEFINED,
+            listeners: { 
+                scope: me,
+                submit: function() {
+                    this.doReload();
+                }
+            }
+        }).show();
+    },
 
-        me.store.reload();
-    }
+    onEditButton: function() {
+        var me = this;
+        var record = me.getSelected();
+        Ext.create("OMV.module.admin.service.fail2ban.Jail", {
+            title: _("Edit jail"),
+            uuid: record.get("uuid"),
+            listeners: {
+                scope: me,
+                submit: function() {
+                    this.doReload();
+                }
+            }
+        }).show();
+    },
+
+    doDeletion: function(record) {
+        var me = this;
+        OMV.Rpc.request({
+            scope: me,
+            callback: me.onDeletion,
+            rpcData: {
+                service: "Fail2Ban",
+                method: "deleteJail",
+                params: {
+                    uuid: record.get("uuid")
+                }
+            }
+        });
+    } 
 
 });
 

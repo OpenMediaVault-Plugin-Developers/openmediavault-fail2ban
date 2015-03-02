@@ -1,8 +1,9 @@
 /**
+ * This file is part of OpenMediaVault.
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
- * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
- * @copyright Copyright (c) 2013 OpenMediaVault Plugin Developers
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2015 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,12 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/panel/Textarea.js")
 
-OMV.WorkspaceManager.registerNode({
-    id: "git",
-    path: "/service",
-    text: _("Git"),
-    icon16: "images/git.png",
-    iconSvg: "images/git.svg"
+/**
+ * @class OMV.module.admin.diagnostic.service.plugin.Fail2ban
+ * @derived OMV.workspace.panel.Textarea
+ */
+Ext.define("OMV.module.admin.diagnostic.service.plugin.Fail2ban", {
+	extend: "OMV.workspace.panel.Textarea",
+	alias: "omv.plugin.diagnostic.service.fail2ban",
+
+	title: _("Fail2ban"),
+	rpcService: "Fail2Ban",
+	rpcMethod: "getStats"
 });

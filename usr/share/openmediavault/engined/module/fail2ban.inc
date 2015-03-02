@@ -23,30 +23,33 @@ require_once "openmediavault/error.inc";
 require_once "openmediavault/util.inc";
 require_once "openmediavault/initscript.inc";
 
+
 class OMVModuleFail2ban extends OMVModuleServiceAbstract
     implements OMVINotifyListener, OMVIModuleServiceStatus
 {
-    /* Helpers */
+    private function getPluginName()
+    {
+        return strtolower($this->getName());
+    }
 
     private function getEventMessagePath()
     {
-        return "org.openmediavault.services.fail2ban";
+        return sprintf("org.openmediavault.service.%s",$this->getPluginName());
     }
 
     private function getXPath()
     {
-        return "/config/services/fail2ban";
+        return sprintf("//services/%s",$this->getPluginName());
     }
 
-    /* /Helpers */
+    /**
+     * Get the module name.
+     */
+    public function getName()
+    {
+       return "fail2ban";
+    }
 
-	/**
-	 * Get the module name.
-	 */
-	public function getName()
-	{
-		return "fail2ban";
-	}
 
     /**
      * Get the status of the service
@@ -65,23 +68,23 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
 
         return array(
             "name"    => $this->getName(),
-            "title"   => gettext("Fail2ban"),
-            "enabled" => boolval($object["enable"]),
+            "title"   => gettext($this->getName()),
+            "enabled" => boolvalEx($object["enable"]),
             "running" => $initd->status() == 0
         );
     }
 
-	/**
-	 * Create and update the configuration
-	 */
-	public function applyConfig()
-	{
-	    $cmd = sprintf("sudo omv-mkconf %s 2>&1", $this->getName());
+    /**
+     * Create and update the configuration
+     */
+    public function applyConfig()
+    {
+        $cmd = sprintf("sudo omv-mkconf %s 2>&1", $this->getName());
 
         if (0 !== $this->exec($cmd, $output))
             throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
                 $cmd, implode("\n", $output));
-	}
+    }
 
     /**
      * Start the service
@@ -112,18 +115,23 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
         $initd->exec();
     }
 
-	/**
-	 * Bind listeners.
-	 */
-	public function bindListeners(OMVNotifyDispatcher $dispatcher) {
-	    $dispatcher->addListener(
-            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+    /**
+     * Bind listeners.
+     */
+    public function bindListeners(OMVNotifyDispatcher $dispatcher)
+    {
+	$dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
             $this->getEventMessagePath(),
             array($this, "setDirty"));
-	}
+
+        $dispatcher->addListener(
+	    OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+	    "org.openmediavault.services.fail2ban.jails.jail",
+	    array($this, "setDirty"));
+    }
 }
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleFail2ban());
-
