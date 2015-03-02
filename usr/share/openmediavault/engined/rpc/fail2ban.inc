@@ -22,7 +22,6 @@ require_once("openmediavault/config.inc");
 require_once "openmediavault/error.inc";
 require_once "openmediavault/util.inc";
 require_once("openmediavault/rpcservice.inc");
-//require_once "openmediavault/rpc.inc";
 require_once "openmediavault/notify.inc";
 
 class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
@@ -74,7 +73,7 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
     }
 
     public function setSettings($params, $context)
-    {
+   {
         global $xmlConfig;
 
         // Validate the RPC caller context.
@@ -134,18 +133,13 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
     }
 
     /**
-	 * Get list of Jail config objects.
-	 * @param params An array containing the following fields:
-	 *   \em start The index where to start.
-	 *   \em limit The number of objects to process.
-	 *   \em sortfield The name of the column used to sort.
-	 *   \em sortdir The sort direction, ASC or DESC.
-	 * @param context The context of the caller.
-	 * @return An array containing the requested objects. The field \em total
-	 *   contains the total number of objects, \em data contains the object
-	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 */
+     * Get list of Jail config objects.
+     * @param params An array containing the Jails object:
+     * @param context The context of the caller.
+     * @return An array containing the requested objects.
+     * An exception will be thrown in case of an error.
+     * @throw E_CONFIG_GET_OBJECT_FAILED
+     */
      public function getJailList($params, $context)
      {
 	 global $xmlConfig;
@@ -153,10 +147,10 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 // Validate the RPC caller context.
 	 $this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
-		 ));
+	 ));
 
-	// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
+	 // Validate the parameters of the RPC service method.
+	 $this->validateMethodParams($params, '{
 			  "type":"object",
 			  "properties":{
 				  "start"    :{"type":"integer"},
@@ -164,26 +158,30 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
 				  "sortdir"  :{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
 			  }
-		  }');
+	 }');
 
-		// Get the list of configuration objects.
-		$xpath = "//services/fail2ban/jails/jail";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+	 // Get the list of configuration objects.
+	 $xpath = "//services/fail2ban/jails/jail";
+	 $objects = $xmlConfig->getList($xpath);
+
+	 if(is_null($objects))
+         {
+	       throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
-		}
+	  }
 
-		// Modify the result objects.
-		foreach($objects as $objectk => &$objectv) {
+	  // Modify the result objects.
+	  foreach($objects as $objectk => &$objectv) {
 			$objectv['enable']   = boolvalEx($objectv['enable']);
 			$objectv['maxretry'] = intval($objectv['maxretry']);
  			$objectv['bantime']  = intval($objectv['bantime']);
-		}
-		// Filter the result objects.
-		return $this->applyFilter($objects, $params['start'],
+	   }
+
+	   // Filter the result objects.
+	   return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
+
 	/**
 	 * Get a ban rule configuration object.
 	 * @param params An array containing the following fields:
@@ -192,33 +190,40 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 * @return The requested configuration object.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getJail($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
-		// Get the configuration object.
-		$xpath = sprintf("//services/fail2ban/jails/jail[uuid='%s']",
-		  $params['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify the result object.
-			$object['enable']   = boolvalEx($object['enable']); 
-                        $object['maxretry'] = intval($object['maxretry']);
-                        $object['bantime']  = intval($object['bantime']);
+	public function getJail($params, $context)
+        {
+	    global $xmlConfig;
 
-		return $object;
+	    // Validate the RPC caller context.
+	    $this->validateMethodContext($context, array(
+	        "role" => OMV_ROLE_ADMINISTRATOR
+	    ));
+
+	    // Validate the parameters of the RPC service method.
+	    $this->validateMethodParams($params, '{
+	         "type":"object",
+		 "properties":{
+		    "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+		 }
+	     }');
+
+	     // Get the configuration object.
+	     $xpath = sprintf("//services/fail2ban/jails/jail[uuid='%s']",
+		  $params['uuid']);
+	     $object = $xmlConfig->get($xpath);
+
+	     if(is_null($object))
+             {
+	         throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+	     }
+
+	     // Modify the result object.
+             $object['enable']   = boolvalEx($object['enable']); 
+             $object['maxretry'] = intval($object['maxretry']);
+             $object['bantime']  = intval($object['bantime']);
+
+	     return $object;
 	}
 	/**
 	 * Set a ban rule configuration object.
@@ -227,14 +232,16 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 * @return The configuration object.
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	public function setJail($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
+	public function setJail($params, $context)
+        {
+	     global $xmlConfig;
+	     // Validate the RPC caller context.
+	     $this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
+	     ));
+
+	     // Validate the parameters of the RPC service method.
+	     $this->validateMethodParams($params, '{
 			  "type":"object",
 			  "properties":{
 				"uuid"     :{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
@@ -246,10 +253,10 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 				"filter"   :{"type":"string"},
 				"logpath"  :{"type":"string"}
 			  }
-		  }');
+	     }');
 
-		// Prepare the configuration object.
-		$object = array(
+	     // Prepare the configuration object.
+	     $object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $params['uuid'],
 			"enable"   => array_boolval($params,'enable'),
@@ -259,32 +266,36 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 			"bantime"  => $params['bantime'],
                         "filter"   => $params['filter'],
                         "logpath"  => $params['logpath'] 
-		);
+	     );
 
-		// Set the configuration object.
-		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
-			$success = $xmlConfig->set("//services/fail2ban/jails",
-			  array("jail" => $object));
-		} else {
-			// Update existing configuration object.
-			$success = $xmlConfig->replace("//services/fail2ban/jails" .
-			  "/jail[uuid='{$params['uuid']}']", $object);
-		}
+	     // Set the configuration object.
+	     $success = FALSE;
+	     if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED'])
+             {
+	          // Append object to configuration.
+		  $success = $xmlConfig->set("//services/fail2ban/jails",
+	              array("jail" => $object));
+	     }
+             else
+             {
+	          // Update existing configuration object.
+		  $success = $xmlConfig->replace("//services/fail2ban/jails" .
+		      "/jail[uuid='{$params['uuid']}']", $object);
+	     }
 
-		if(FALSE === $success)
-                {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
+	     if(FALSE === $success)
+             {
+	         throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+	     }
 
-		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.fail2ban.jails.jail", $object);
-		// Return the configuration object.
-		return $object;
+	     // Notify configuration changes.
+	     $dispatcher = &OMVNotifyDispatcher::getInstance();
+	     $dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+	         OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		 "org.openmediavault.services.fail2ban.jails.jail", $object);
+	     
+             // Return the configuration object.
+	     return $object;
 	}
 
 	/**
@@ -296,21 +307,24 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 */
 	public function deleteJail($params, $context)
         {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-			  }
-		  }');
-		// Delete the configuration object.
-		$xpath = sprintf("//services/fail2ban/jails/jail[uuid='%s']",
+	    // Validate the RPC caller context.
+	    $this->validateMethodContext($context, array(
+	         "role" => OMV_ROLE_ADMINISTRATOR
+	    ));
+
+	    // Validate the parameters of the RPC service method.
+	    $this->validateMethodParams($params, '{
+		"type":"object",
+		"properties":{
+		"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+		}
+	     }');
+
+	     // Delete the configuration object.
+	     $xpath = sprintf("//services/fail2ban/jails/jail[uuid='%s']",
 		  $params['uuid']);
-		return $this->deleteConfigObjectByPath($xpath,
+
+	     return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.fail2ban/jails/jail");
 	}
 
@@ -322,69 +336,75 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 * @throw E_EXEC_FAILED
 	 */
-	public function getStats($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Is service enabled?
-		$xpath = "//services/fail2ban";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if (!boolvalEx($object['enable'])) {
-			$stats = gettext("Service disabled");
-		} else {
-			$cmd = "fail2ban-client status 2>&1";
+	public function getStats($params, $context)
+        {
+	    global $xmlConfig;
 
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}   
+	    // Validate the RPC caller context.
+	    $this->validateMethodContext($context, array(
+	        "role" => OMV_ROLE_ADMINISTRATOR
+	    ));
+
+	    // Is service enabled?
+	    $xpath = "//services/fail2ban";
+	    $object = $xmlConfig->get($xpath);
+
+	    if(is_null($object))
+            {
+	        throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+		    $xpath);
+	    }
+
+	    if (!boolvalEx($object['enable']))
+            {
+	        $stats = gettext("Service disabled");
+	    }
+            else
+            {
+		$cmd = "fail2ban-client status 2>&1";
+
+		if(0 !== $this->exec($cmd, $output))
+                {
+		     throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+		         $cmd, implode("\n", $output));
+		}   
                       
-                        $stats .= implode("\n", $output);
+                $stats .= implode("\n", $output);
 
 
-                        // Supprime "`- Jail list:"
-                        $jailsTmp = str_replace("`- Jail list:", "", $output[2]);
+                // Delete "`- Jail list:"
+                $jailsTmp = str_replace("`- Jail list:", "", $output[2]);
 
-                        //$stats .= implode("\n", $jailsTmp);
+                // Delete spaces
+                $jailsTmp = str_replace(" ", "", $jailsTmp);
 
-                        // Supprime les espaces
-                        $jailsTmp = str_replace(" ", "", $jailsTmp);
-
-                        //$stats .= implode("\n", $jailsTmp);
-
-			if(strlen($jailsTmp) == 0)
-			{
-                            $stats .= implode("\n", "No jail enabled");
-                        }
-                        else
-                        {
-                            // Creation d'un tableau avec les different elements
-                            $jails = explode(",", $jailsTmp);   
+		if(strlen($jailsTmp) == 0)
+		{
+                     $stats .= implode("\n", "No jail enabled");
+                }
+                else
+                {
+                     // Create array
+                     $jails = explode(",", $jailsTmp);   
                         
-                            foreach ($jails as $jail)
-			    {                        
+                     foreach ($jails as $jail)
+	             {                        
+                         $stats .= sprintf("\n\n");
 
-                                $stats .= sprintf("\n\n");
+                          $cmd = "fail2ban-client status $jail 2>&1";
 
-                                $cmd = "fail2ban-client status $jail 2>&1";
+                          if(0 !== $this->exec($cmd, $output))
+                          {                
+                              throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+                                   $cmd, implode("\n", $output));
+                          }
+                    
+                           $stats .= implode("\n", $output);
+                     }
+                }
+            }
 
-                                if(0 !== $this->exec($cmd, $output)) {                
-                                        throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-                                          $cmd, implode("\n", $output));
-                                }
-
-                                $stats .= implode("\n", $output);
-                            }
-                        }
-
-              }
-          return $stats;
+            return $stats;
       }
 }
 

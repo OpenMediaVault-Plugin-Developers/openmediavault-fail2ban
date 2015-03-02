@@ -1,5 +1,5 @@
-openmediavault-fail2ban (0.1.0) unstable; urgency=low
+openmediavault-fail2ban (1.0.0) stable; urgency=low
 
   * Initial release.
 
- -- OpenMediaVault Plugin Developers <plugins@ovm-extras.org>  Sun, 02 Mar 2014 21:11:00 +0200
+ -- prbond  <bond_jd@yahoo.fr>  Mon, 02 Mar 2015 14:05:00 +0200
