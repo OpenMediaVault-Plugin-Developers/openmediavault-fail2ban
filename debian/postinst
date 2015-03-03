@@ -32,14 +32,71 @@ case "$1" in
         if ! omv_config_exists "${SERVICE_XPATH}"; then
             omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
             omv_config_add_element "${SERVICE_XPATH}" "enable" "0"
-            omv_config_add_element "${SERVICE_XPATH}" "loglevel" "3"
-            omv_config_add_element "${SERVICE_XPATH}" "jaildefaults"
+            omv_config_add_element "${SERVICE_XPATH}" "ignoreip" "127.0.0.1"
+            omv_config_add_element "${SERVICE_XPATH}" "findtime" "604800"
+            omv_config_add_element "${SERVICE_XPATH}" "bantime" "604800"
+            omv_config_add_element "${SERVICE_XPATH}" "maxretry" "3"
+            omv_config_add_element "${SERVICE_XPATH}" "destemail" "root@localhost"
+            omv_config_add_element "${SERVICE_XPATH}" "action" "action_mwl"
             omv_config_add_element "${SERVICE_XPATH}" "jails"
-            omv_config_add_element "${SERVICE_XPATH}" "filters"
+
+            object="<uuid>36b96e6c-9187-4b93-b0c6-05c6d3e29dc3</uuid>"
+            object="${object}<enable>0</enable>"
+            object="${object}<name>ssh</name>"
+            object="${object}<port>ssh</port>"
+            object="${object}<maxretry>3</maxretry>"
+            object="${object}<bantime>-1</bantime>"
+            object="${object}<filter>sshd</filter>"
+            object="${object}<logpath>/var/log/auth.log</logpath>"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
+
+            object="<uuid>59650e01-5e07-4076-9b15-ce352f4b4356</uuid>"
+            object="${object}<enable>0</enable>"
+            object="${object}<name>ssh-ddos</name>"
+            object="${object}<port>ssh</port>"
+            object="${object}<maxretry>3</maxretry>"
+            object="${object}<bantime>-1</bantime>"
+            object="${object}<filter>sshd-ddos</filter>"
+            object="${object}<logpath>/var/log/auth.log</logpath>"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
+
+            object="<uuid>645ae684-0950-4fcf-92fc-eba1b88775b1</uuid>"
+            object="${object}<enable>0</enable>"
+            object="${object}<name>apache-noscript</name>"
+            object="${object}<port>httpd,httpds</port>"
+            object="${object}<maxretry>3</maxretry>"
+            object="${object}<bantime>-1</bantime>"
+            object="${object}<filter>apache-noscript</filter>"
+            object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
             
-            # Stop and prevent fail2ban from starting automatically
-            service fail2ban stop
-            update-rc.d fail2ban disable
+            object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b60</uuid>"
+            object="${object}<enable>0</enable>"
+            object="${object}<name>apache-404</name>"
+            object="${object}<port>httpd,httpds</port>"
+            object="${object}<maxretry>3</maxretry>"
+            object="${object}<bantime>-1</bantime>"
+            object="${object}<filter>apache-404</filter>"
+            object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
+
+            object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b60</uuid>"
+            object="${object}<enable>0</enable>"
+            object="${object}<name>proftp</name>"
+            object="${object}<port>ftp,ftp-data,ftps,ftps-data</port>"
+            object="${object}<maxretry>3</maxretry>"
+            object="${object}<bantime>-1</bantime>"
+            object="${object}<filter>proftpd</filter>"
+            object="${object}<logpath>/var/log/proftpd/proftpd.log</logpath>"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
+
+        fi
+
+
+        if [ "$(omv_config_get ${SERVICE_XPATH}"/enable")" = 0 ]; then
+	    service fail2ban stop
+        else
+            service fail2ban start
         fi
 
         # Activate package triggers. These triggers are only set during the

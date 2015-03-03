@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-# include ./openmediavault.mk
+include ./openmediavault.mk
 
 clean:
 	dh_testdir
@@ -11,10 +11,9 @@ install:
 	dh_testdir
 	dh_testroot
 	dh_prep
-#    /bin/sh create_pot
 	dh_installdirs
 	dh_install
-	chmod +x $(CURDIR)/debian/openmediavault-git/usr/share/openmediavault/mkconf/fail2ban
+	chmod +x $(CURDIR)/debian/openmediavault-fail2ban/usr/share/openmediavault/mkconf/fail2ban
 
 binary-indep: install omv_clean_scm
 	dh_testdir

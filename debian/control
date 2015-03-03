@@ -2,13 +2,13 @@ Source: openmediavault-fail2ban
 Section: devel
 XB-Plugin-Section: network
 Priority: optional
-Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-Build-Depends: debhelper (>= 8.0.0 )
+Maintainer: prbond <bond_jd@yahoo.fr>
+Build-Depends: debhelper (>= 9 )
 Standards-Version: 3.9.3
 
 Package: openmediavault-fail2ban
 Architecture: all
-Depends: ${misc:Depends}, openmediavault (>= 0.5.14), openmediavault (<< 0.6), fail2ban
+Depends: ${misc:Depends}, openmediavault (>= 1.0.0), python-central (>= 0.6.11), fail2ban
 Description: OpenMediaVault Fail2ban plugin
  Protect OMV with Fail2ban. Fail2ban scans log files and bans IPs that 
  show the malicious signs -- too many password failures, seeking for 
