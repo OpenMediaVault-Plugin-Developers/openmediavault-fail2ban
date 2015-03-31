@@ -80,7 +80,7 @@ case "$1" in
             object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
             omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
 
-            object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b60</uuid>"
+            object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b21</uuid>"
             object="${object}<enable>0</enable>"
             object="${object}<name>proftp</name>"
             object="${object}<port>ftp,ftp-data,ftps,ftps-data</port>"

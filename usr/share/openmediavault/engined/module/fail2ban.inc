@@ -135,3 +135,22 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleFail2ban());
+
+// Register new logfile type.
+OMVLogFile::registerType("fail2ban", array(
+  "filename" => "fail2ban",
+  "filepath" => "/var/log/fail2ban.log",
+  "regex" => "/^(\S+\s+\S+)(,\S+) (.*)$/",
+  "columns" => array(
+          "ts" => array(
+                  "index" => 1,
+                  "func" => create_function('$v', 'return strpdate($v,"Y-m-d G:i:s");')
+          ),
+          "date" => array(
+                  "index" => 1,
+                  "func" => create_function('$v','return strftime("%c", strpdate($v,"Y-m-d G:i:s"));')
+          ),
+          "message" => 3
+  )));
+?>
+
