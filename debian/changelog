@@ -1,3 +1,16 @@
+openmediavault-fail2ban (1.1.2) stable; urgency=low
+
+  * Change icon to black/white icon (by Nibb31)
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 16 Apr 2015 18:02:40 +0200
+
+openmediavault-fail2ban (1.1.1) stable; urgency=low
+
+  * Correct bug : blank ftp jail.
+  * New feature : show fail2ban.log
+
+ -- prbond  <bond_jd@yahoo.fr>  Thu, 31 Mar 2015 11:31:00 +0200
+
 openmediavault-fail2ban (1.0.0) stable; urgency=low
 
   * Initial release.
