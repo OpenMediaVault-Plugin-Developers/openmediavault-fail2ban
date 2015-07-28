@@ -32,9 +32,12 @@ case "$1" in
                 if omv_config_exists "${SERVICE_XPATH}"; then
                         omv_config_delete "${SERVICE_XPATH}"
                 fi
+ 
+ 
 	;;
 
 	remove)
+        dpkg -r fail2ban      
 	;;
 	
 
