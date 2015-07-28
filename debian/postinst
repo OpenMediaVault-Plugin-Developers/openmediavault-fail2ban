@@ -90,6 +90,26 @@ case "$1" in
             object="${object}<logpath>/var/log/proftpd/proftpd.log</logpath>"
             omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
 
+            object="<uuid>7e9a7d35-326c-4dc8-bc05-35f308a62b78</uuid>"
+            object="${object}<enable>0</enable>"
+            object="${object}<name>owncloud</name>"
+            object="${object}<port>http,https,8443</port>"
+            object="${object}<maxretry>3</maxretry>"
+            object="${object}<bantime>-1</bantime>"
+            object="${object}<filter>owncloud</filter>"
+            object="${object}<logpath>/MyPath/owncloud.log</logpath>"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
+
+            object="<uuid>4e3a2d25-326c-4dc8-bc05-22f303a62b75</uuid>"
+            object="${object}<enable>0</enable>"
+            object="${object}<name>nginx-404</name>"
+            object="${object}<port>http,https</port>"
+            object="${object}<maxretry>3</maxretry>"
+            object="${object}<bantime>-1</bantime>"
+            object="${object}<filter>nginx-404</filter>"
+            object="${object}<logpath>/var/log/nginx*/*access*.log</logpath>"
+            omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
+
         fi
 
 
