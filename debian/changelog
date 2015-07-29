@@ -1,3 +1,9 @@
+openmediavault-fail2ban (1.1.3) stable; urgency=low
+
+  * Add owncloud and nginx jails
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 28 Jul 2015 18:52:11 +0200
+
 openmediavault-fail2ban (1.1.2) stable; urgency=low
 
   * Change icon to black/white icon (by Nibb31)
