@@ -1,0 +1,79 @@
+{
+	"type": "config",
+	"id": "conf.service.fail2ban",
+	"title": "fail2ban",
+	"queryinfo": {
+		"xpath": "//services/fail2ban",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"ignoreip": {
+			"type": "string",
+			"default": "127.0.0.1"
+	        },
+		"findtime": {
+			"type": "string",
+			"default": "604800"
+		},
+		"bantime": {
+			"type": "string",
+			"default": "604800"
+		},
+		"maxretry": {
+			"type": "integer",
+			"default": 3
+		},
+		"destemail": {
+			"type": "string",
+			"default": "root@localhost"
+		},
+		"action": {
+			"type": "string",
+			"enum": [ "action_", "action_mw", "action_mwl" ],
+			"default": "action_mwl"
+		},
+		"jails": {
+			"type": "object",
+			"properties": {
+				"jail": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"enable": {
+								"type": "boolean",
+								"default": false
+							},
+							"name": {
+								"type": "string"
+							},
+							"port": {
+								"type": "string"
+							},
+							"maxretry": {
+								"type": "integer"
+							},
+							"bantime": {
+								"type": "string"
+							},
+							"filter": {
+								"type": "string"
+							},
+							"logpath": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
