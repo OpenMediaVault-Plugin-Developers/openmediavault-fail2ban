@@ -17,14 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once "openmediavault/object.inc";
-require_once("openmediavault/config.inc");
-require_once "openmediavault/error.inc";
-require_once "openmediavault/util.inc";
-require_once("openmediavault/rpcservice.inc");
-require_once "openmediavault/notify.inc";
-
-class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
+class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
 {
     public function getName()
     {
@@ -36,27 +29,38 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
         $this->registerMethod("getSettings");
         $this->registerMethod("setSettings");
         $this->registerMethod("getJailList");
-	$this->registerMethod("setJail");
+		$this->registerMethod("setJail");
         $this->registerMethod("getJail");
         $this->registerMethod("deleteJail");
-	$this->registerMethod("getStats");
+		$this->registerMethod("getStats");
     }
 
     public function getSettings($params, $context)
     {
-        global $xmlConfig;
+		// OLD
+        //global $xmlConfig;
 
         // Validate the RPC caller context.
-        $this->validateMethodContext($context, array(
+        $this->validateMethodContext($context, [
             "role" => OMV_ROLE_ADMINISTRATOR
-        ));
+        ]);
 
         // Get configuration object
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.fail2ban");
+		
+		// Remove useless properties from the object.
+		$object->remove("jails");
+		
+		return $object->getAssoc();
+		
+/*		
+		// OLD
         $xpath = "//services/fail2ban";
         $object = $xmlConfig->get($xpath);
 
         if (is_null($object))
-	{
+		{
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $xpath);
         }
@@ -70,17 +74,34 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
         unset($object['jails']);
 
         return $object;
+*/
     }
 
     public function setSettings($params, $context)
    {
-        global $xmlConfig;
+		// OLD
+		//global $xmlConfig;
 
         // Validate the RPC caller context.
-        $this->validateMethodContext($context, array(
+        $this->validateMethodContext($context, [
             "role" => OMV_ROLE_ADMINISTRATOR
-        ));
+        ]);
 
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.fail2ban.setsettings");
+	
+		// Get the existing configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.fail2ban");
+		$object->setAssoc($params);
+		// Set the configuration object.
+		$db->set($object);
+		// Remove useless properties from the object.
+		$object->remove("jails");
+
+		// Return the configuration object.
+		return $object->getAssoc();		
+/*		
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, '{
             "type"       : "object",
@@ -130,6 +151,7 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
                             $object);
 
         return $object;
+*/
     }
 
     /**
@@ -142,13 +164,21 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
      */
      public function getJailList($params, $context)
      {
-	 global $xmlConfig;
+//	 global $xmlConfig;
 
 	 // Validate the RPC caller context.
-	 $this->validateMethodContext($context, array(
+	 $this->validateMethodContext($context, [
 			  "role" => OMV_ROLE_ADMINISTRATOR
-	 ));
+	 ]);
 
+	 // Validate the parameters of the RPC service method.
+	$this->validateMethodParams($params, "rpc.common.getlist");
+	// Get the configuration object.
+	$db = \OMV\Config\Database::getInstance();
+	$objects = $db->get("conf.service.fail2ban.jails");
+	
+	
+/*	 
 	 // Validate the parameters of the RPC service method.
 	 $this->validateMethodParams($params, '{
 			  "type":"object",
@@ -180,7 +210,8 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	   // Filter the result objects.
 	   return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
-	}
+*/
+    }
 
 	/**
 	 * Get a ban rule configuration object.
@@ -191,14 +222,21 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getJail($params, $context)
-        {
-	    global $xmlConfig;
+    {
+//	    global $xmlConfig;
 
 	    // Validate the RPC caller context.
-	    $this->validateMethodContext($context, array(
+	    $this->validateMethodContext($context, [
 	        "role" => OMV_ROLE_ADMINISTRATOR
-	    ));
+	    ]);
 
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
+		
+		// Get the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		return $db->getAssoc("conf.service.fail2ban.jail", $params['uuid']);
+/*		
 	    // Validate the parameters of the RPC service method.
 	    $this->validateMethodParams($params, '{
 	         "type":"object",
@@ -224,7 +262,9 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
              $object['bantime']  = intval($object['bantime']);
 
 	     return $object;
+*/
 	}
+	
 	/**
 	 * Set a ban rule configuration object.
 	 * @param params The method parameters.
@@ -233,13 +273,36 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setJail($params, $context)
-        {
-	     global $xmlConfig;
+    {
+//	     global $xmlConfig;
+		 
 	     // Validate the RPC caller context.
-	     $this->validateMethodContext($context, array(
+	     $this->validateMethodContext($context, [
 			  "role" => OMV_ROLE_ADMINISTRATOR
-	     ));
-
+	     ]);
+		 
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.fail2ban.setjails");
+		
+		// Prepare the configuration object.
+		$object = new \OMV\Config\ConfigObject("conf.service.fail2ban.jail");
+		$object->setAssoc($params);
+		
+		// Set the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		
+		if (TRUE === $object->isNew()) {
+			// Check uniqueness:
+			// - uuid
+			$db->assertIsUnique($object, "uuid");
+		}
+		
+		$db->set($object);
+		
+		// Return the configuration object.
+		return $object->getAssoc();
+		
+/*		 
 	     // Validate the parameters of the RPC service method.
 	     $this->validateMethodParams($params, '{
 			  "type":"object",
@@ -296,6 +359,7 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	     
              // Return the configuration object.
 	     return $object;
+*/
 	}
 
 	/**
@@ -308,10 +372,22 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	public function deleteJail($params, $context)
         {
 	    // Validate the RPC caller context.
-	    $this->validateMethodContext($context, array(
+	    $this->validateMethodContext($context, [
 	         "role" => OMV_ROLE_ADMINISTRATOR
-	    ));
+	    ]);
 
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, "rpc.common.objectuuid");
+		
+		// Delete the configuration object.
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.fail2ban.jail", $params['uuid']);
+		$db->delete($object);
+		
+		// Return the deleted configuration object.
+		return $object->getAssoc();
+
+/*		
 	    // Validate the parameters of the RPC service method.
 	    $this->validateMethodParams($params, '{
 		"type":"object",
@@ -326,6 +402,7 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 
 	     return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.fail2ban/jails/jail");
+*/
 	}
 
 	/**
@@ -338,13 +415,72 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
 	 */
 	public function getStats($params, $context)
         {
-	    global $xmlConfig;
+//	    global $xmlConfig;
 
 	    // Validate the RPC caller context.
-	    $this->validateMethodContext($context, array(
+	    $this->validateMethodContext($context, [
 	        "role" => OMV_ROLE_ADMINISTRATOR
-	    ));
+	    ]);
 
+	    	// Is service enabled?
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.fail2ban");
+		
+		if (FALSE === $object->get("enable"))
+		{
+			$stats = gettext("Service disabled");
+		}
+		else
+		{
+			$cmdArgs = [];
+			$cmdArgs[] = "status";
+			$cmd = new \OMV\System\Process("fail2ban-client", $cmdArgs);
+			$cmd->setRedirect2to1();
+			//$cmd->execute($output);
+			
+			if(0 !== $cmd->execute($output))
+			{
+				throw new \OMV\ExecException($cmd." ".implode("\n", $output));
+			}
+			
+			$stats .= implode("\n", $output);
+
+            		// Delete "`- Jail list:"
+            		$jailsTmp = str_replace("`- Jail list:", "", $output[2]);
+
+          		// Delete spaces
+            		$jailsTmp = str_replace(" ", "", $jailsTmp);
+
+			if(strlen($jailsTmp) == 0)
+			{
+                     		$stats .= implode("\n", "No jail enabled");
+            		}
+            		else
+            		{
+                		// Create array
+                		$jails = explode(",", $jailsTmp);   
+                        
+                		foreach ($jails as $jail)
+				{                        
+                    			$stats .= sprintf("\n\n");
+
+		    			$cmdArgs = [];
+		    			$cmdArgs[] = "status";
+		    			$cmd = new \OMV\System\Process("fail2ban-client", $cmdArgs);
+                    			$cmd->setRedirect2to1();
+
+                    			if(0 !== $cmd->execute($output))
+                    			{                
+						throw new \OMV\ExecException($cmd." ".implode("\n", $output));
+                    			}
+                    
+                    			$stats .= implode("\n", $output);
+                		}
+            		}
+ 	
+			return $stats;
+		}
+/*		
 	    // Is service enabled?
 	    $xpath = "//services/fail2ban";
 	    $object = $xmlConfig->get($xpath);
@@ -405,10 +541,6 @@ class OMVRpcServiceFail2ban extends OMVRpcServiceAbstract
             }
 
             return $stats;
+*/
       }
 }
-
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceFail2ban());
