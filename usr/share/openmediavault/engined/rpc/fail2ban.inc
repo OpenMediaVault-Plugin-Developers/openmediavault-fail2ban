@@ -29,15 +29,15 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
         $this->registerMethod("getSettings");
         $this->registerMethod("setSettings");
         $this->registerMethod("getJailList");
-		$this->registerMethod("setJail");
+	$this->registerMethod("setJail");
         $this->registerMethod("getJail");
         $this->registerMethod("deleteJail");
-		$this->registerMethod("getStats");
+	$this->registerMethod("getStats");
     }
 
     public function getSettings($params, $context)
     {
-		// OLD
+	// OLD
         //global $xmlConfig;
 
         // Validate the RPC caller context.
@@ -46,21 +46,21 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
         ]);
 
         // Get configuration object
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.fail2ban");
+	$db = \OMV\Config\Database::getInstance();
+	$object = $db->get("conf.service.fail2ban");
 		
-		// Remove useless properties from the object.
-		$object->remove("jails");
+	// Remove useless properties from the object.
+	$object->remove("jails");
 		
-		return $object->getAssoc();
+	return $object->getAssoc();
 		
 /*		
-		// OLD
+	// OLD
         $xpath = "//services/fail2ban";
         $object = $xmlConfig->get($xpath);
 
         if (is_null($object))
-		{
+	{
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
                 $xpath);
         }
@@ -79,28 +79,28 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
 
     public function setSettings($params, $context)
    {
-		// OLD
-		//global $xmlConfig;
+	// OLD
+	//global $xmlConfig;
 
         // Validate the RPC caller context.
         $this->validateMethodContext($context, [
             "role" => OMV_ROLE_ADMINISTRATOR
         ]);
 
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.fail2ban.setsettings");
+	// Validate the parameters of the RPC service method.
+	$this->validateMethodParams($params, "rpc.fail2ban.setsettings");
 	
-		// Get the existing configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.fail2ban");
-		$object->setAssoc($params);
-		// Set the configuration object.
-		$db->set($object);
-		// Remove useless properties from the object.
-		$object->remove("jails");
+	// Get the existing configuration object.
+	$db = \OMV\Config\Database::getInstance();
+	$object = $db->get("conf.service.fail2ban");
+	$object->setAssoc($params);
+	// Set the configuration object.
+	$db->set($object);
+	// Remove useless properties from the object.
+	$object->remove("jails");
 
-		// Return the configuration object.
-		return $object->getAssoc();		
+	// Return the configuration object.
+	return $object->getAssoc();		
 /*		
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, '{
@@ -175,7 +175,7 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
 	$this->validateMethodParams($params, "rpc.common.getlist");
 	// Get the configuration object.
 	$db = \OMV\Config\Database::getInstance();
-	$objects = $db->get("conf.service.fail2ban.jails");
+	$objects = $db->get("conf.service.fail2ban.jail");
 	
 	
 /*	 
@@ -282,7 +282,7 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
 	     ]);
 		 
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.fail2ban.setjails");
+		$this->validateMethodParams($params, "rpc.fail2ban.setjail");
 		
 		// Prepare the configuration object.
 		$object = new \OMV\Config\ConfigObject("conf.service.fail2ban.jail");
@@ -432,16 +432,18 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
 		}
 		else
 		{
-			$cmdArgs = [];
-			$cmdArgs[] = "status";
+			//$cmdArgs = [];
+			$cmdArgs = "status";
 			$cmd = new \OMV\System\Process("fail2ban-client", $cmdArgs);
 			$cmd->setRedirect2to1();
 			//$cmd->execute($output);
 			
-			if(0 !== $cmd->execute($output))
+			$result = $cmd->execute($output,$exitStatus);
+
+			if(0 !== $exitStatus)
 			{
-				throw new \OMV\ExecException($cmd." ".implode("\n", $output));
-			}
+				throw new \OMV\ExecException($cmd->getCommandLine()."->".implode("\n", $output)." and 
+result=".$result." and exitStatus=".$exitStatus);			}
 			
 			$stats .= implode("\n", $output);
 
