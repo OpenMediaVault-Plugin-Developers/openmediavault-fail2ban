@@ -471,10 +471,13 @@ result=".$result." and exitStatus=".$exitStatus);			}
 		    			$cmd = new \OMV\System\Process("fail2ban-client", $cmdArgs);
                     			$cmd->setRedirect2to1();
 
-                    			if(0 !== $cmd->execute($output))
+					$result = $cmd->execute($output,$exitStatus);
+
+                    			if(0 !== $exitStatus)
                     			{                
-						throw new \OMV\ExecException($cmd." ".implode("\n", $output));
-                    			}
+						//throw new \OMV\ExecException($cmd." ".implode("\n", $output));
+						throw new \OMV\ExecException($cmd->getCommandLine()."->".implode("\n", $output)." and
+result=".$result." and exitStatus=".$exitStatus);                     			}
                     
                     			$stats .= implode("\n", $output);
                 		}
