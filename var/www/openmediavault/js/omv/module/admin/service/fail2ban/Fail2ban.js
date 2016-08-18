@@ -1,8 +1,9 @@
 /**
+ * This file is part of OpenMediaVault.
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
- * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
- * @copyright Copyright (c) 2014 OpenMediaVault Plugin Developers
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2016 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,9 +21,9 @@
 // require("js/omv/WorkspaceManager.js")
 
 OMV.WorkspaceManager.registerNode({
-    id: "fail2ban",
-    path: "/service",
-    text: _("Fail2ban"),
-    icon16: "images/fail2ban.png",
-    iconSvg: "images/fail2ban.svg"
+	id: "fail2ban",
+	path: "/service",
+	text: _("Fail2ban"),
+	icon16: "images/fail2ban.png",
+	iconSvg: "images/fail2ban.svg"
 });

@@ -21,7 +21,7 @@
 		        "required": true
 			},
 			"maxretry": {
-			    "type": "integer",
+			    "type": "string",
 		        "required": true
 			},
 			"destemail": {
@@ -37,42 +37,42 @@
 	}
 },{
 	"type": "rpc",
-	"id": "rpc.fail2ban.setjails",
+	"id": "rpc.fail2ban.setjail",
 	"params": {
 		"type": "object",
 		"properties": {
 			"uuid": {
-				"type": "string",
-				"format": "uuidv4",
-				"required": true
+				"type"     : "string",
+				"format"   : "uuidv4",
+				"required" : true
 			},
 			"enable": {
-			    "type": "boolean",
-				"required": true
+			    	"type"     : "boolean",
+				"required" : true
 			},
 			"name": {
-				"type": "string",
-				"required": true
+				"type"     : "string",
+				"required" : true
 			},
 			"port": {
-				"type": "string",
-				"required": true
+				"type"     : "string",
+				"required" : true
 			},
 			"maxretry": {
-			    "type": "integer",
-				"required": true
+			    	"type"     : "string",
+				"required" : true
 			},
 			"bantime": {
-			    "type": "string",
-				"required": true
+			    	"type"     : "string",
+				"required" : true
 			},
 			"filter": {
-			    "type": "string",
-				"required": true
+			    	"type"     : "string",
+				"required" : true
 			},
 			"logpath": {
-			    "type": "string",
-				"required": true
+			    	"type"     : "string",
+				"required" : true
 			}
 		}
 	}
