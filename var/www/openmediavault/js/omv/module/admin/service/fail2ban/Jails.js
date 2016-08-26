@@ -58,7 +58,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "name",
 			fieldLabel: _("Name"),
 			allowBlank: false,
-			vtype: "name",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The name of the jail.")
@@ -68,7 +67,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "port",
 			fieldLabel: _("Port"),
 			allowBlank: false,
-			vtype: "port",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The port of the jail.")
@@ -78,7 +76,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "maxretry",
 			fieldLabel: _("Max Retry"),
 			allowBlank: false,
-			vtype: "maxretry",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Max Retry in seconds.")
@@ -88,7 +85,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "bantime",
 			fieldLabel: _("Ban Time"),
 			allowBlank: false,
-			vtype: "bantime",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Ban time in seconds.")
@@ -98,7 +94,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "filter",
 			fieldLabel: _("Filter"),
 			allowBlank: false,
-			vtype: "filter",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("A filter defines a regular expression which must match a pattern corresponding to a log-in failure or any other expression.")
@@ -108,7 +103,6 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
 			name: "logpath",
 			fieldLabel: _("Log path"),
 			allowBlank: false,
-			vtype: "logpath",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The log file to be scanned by the filter.")
@@ -166,16 +160,16 @@ Ext.define("OMV.module.admin.service.fail2ban.Jails", {
 		sortable: false,
 		dataIndex: "bantime",
 		stateId: "bantime"	
-	 },{
-        text      : _("Filter"),
-        sortable  : false,
-        dataIndex : "filter",
-        stateId   : "filter"
-    },{
-        text      : _("Log Path"),
-        sortable  : false,
-        dataIndex : "logpath",
-        stateId   : "logpath"
+	},{
+        	text      : _("Filter"),
+        	sortable  : false,
+        	dataIndex : "filter",
+        	stateId   : "filter"
+    	},{
+        	text      : _("Log Path"),
+        	sortable  : false,
+        	dataIndex : "logpath",
+        	stateId   : "logpath"
  	}],
 
 	initComponent: function() {
