@@ -25,28 +25,25 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 case "$1" in
-        purge)
-                SERVICE_XPATH_NAME="fail2ban"
-                SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
-        
-                if omv_config_exists "${SERVICE_XPATH}"; then
-                        omv_config_delete "${SERVICE_XPATH}"
-                fi
- 
- 
-	;;
+    purge)
+        SERVICE_XPATH_NAME="fail2ban"
+        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
-	remove)      
-	;;
-	
+        if omv_config_exists "${SERVICE_XPATH}"; then
+           omv_config_delete "${SERVICE_XPATH}"
+        fi
+    ;;
 
-        upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-        ;;
+    remove)
+    ;;
 
-        *)
-                echo "postrm called with unknown argument \`$1'" >&2
-                exit 1
-        ;;
+    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    ;;
+
+    *)
+       echo "postrm called with unknown argument '$1'" >&2
+       exit 1
+    ;;
 esac
 
 #DEBHELPER#

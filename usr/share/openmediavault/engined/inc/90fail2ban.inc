@@ -1,3 +1,4 @@
+<?php
 /**
  * This file is part of OpenMediaVault.
  *
@@ -18,12 +19,24 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/WorkspaceManager.js")
+use OMV\System\LogFileSpec;
 
-OMV.WorkspaceManager.registerNode({
-	id: "fail2ban",
-	path: "/service",
-	text: _("Fail2ban"),
-	icon16: "images/fail2ban.png",
-	iconSvg: "images/fail2ban.svg"
-});
+// /var/log/fail2ban.log
+// 2016-06-19 07:35:17,537 fail2ban.filter : INFO   Log rotation detected for /var/log/auth.log
+LogFileSpec::registerSpecification(
+    'fail2ban',
+    [
+        'filename' => 'fail2ban.log',
+        'filepath' => '/var/log/fail2ban.log',
+        'regex' => '/^(\S+\s+\S+)(,\S+) (.*)$/',
+        'columns' => [
+			'ts' => [
+                  'index' => 1,
+                  'func' => function($v){return strpdate($v,'Y-m-d G:i:s');}
+          ],
+          'date' => [
+                  'index' => 1,
+                  'func' => function($v){return strftime('%c', strpdate($v,'Y-m-d G:i:s'));}
+          ],
+          'message' => 3
+]]);

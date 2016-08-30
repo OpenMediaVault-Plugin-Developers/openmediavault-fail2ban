@@ -17,15 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once "openmediavault/module.inc";
-require_once "openmediavault/config.inc";
-require_once "openmediavault/error.inc";
-require_once "openmediavault/util.inc";
-require_once "openmediavault/initscript.inc";
-
-
-class OMVModuleFail2ban extends OMVModuleServiceAbstract
-    implements OMVINotifyListener, OMVIModuleServiceStatus
+class OMVModuleFail2ban extends \OMV\Engine\Module\ServiceAbstract
+    implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus
 {
     private function getPluginName()
     {
@@ -34,14 +27,17 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
 
     private function getEventMessagePath()
     {
-        return sprintf("org.openmediavault.service.%s",$this->getPluginName());
+		// "org.openmediavault.conf.service.fail2ban"
+        return sprintf("org.openmediavault.conf.service.%s",$this->getPluginName());
     }
 
+/*
     private function getXPath()
     {
         return sprintf("//services/%s",$this->getPluginName());
     }
-
+*/
+	
     /**
      * Get the module name.
      */
@@ -56,6 +52,18 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
      */
     public function getStatus()
     {
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.fail2ban");
+		$systemCtl = new \OMV\System\SystemCtl($this->getName());
+		
+		return [
+			"name" => $this->getName(),
+			"title" => gettext($this->getName()),
+			"enabled" => $object->get("enable"),
+			"running" => $systemCtl->isActive()
+		];		
+		
+/*		
         global $xmlConfig;
 
         $object = $xmlConfig->get($this->getXPath());
@@ -72,6 +80,7 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
             "enabled" => boolvalEx($object["enable"]),
             "running" => $initd->status() == 0
         );
+*/
     }
 
     /**
@@ -79,11 +88,16 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
      */
     public function applyConfig()
     {
+		$cmd = new \OMV\System\Process("omv-mkconf", $this->getName());
+		$cmd->setRedirect2to1();
+		$cmd->execute();
+/*		
         $cmd = sprintf("sudo omv-mkconf %s 2>&1", $this->getName());
 
         if (0 !== $this->exec($cmd, $output))
             throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
                 $cmd, implode("\n", $output));
+*/
     }
 
     /**
@@ -91,6 +105,26 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
      */
     public function startService()
     {
+		$db = \OMV\Config\Database::getInstance();
+		$object = $db->get("conf.service.fail2ban");
+		
+		if (TRUE !== $object->get("enable"))
+		{
+			return;
+		}
+		
+		$systemCtl = new \OMV\System\SystemCtl($this->getName());
+		
+		if ($systemCtl->isEnabled() && $systemCtl->isActive())
+		{
+			// running -> reload config
+			$systemCtl->reload(); 
+		}
+		else
+		{
+			$systemCtl->enable(TRUE);
+		}
+/*		
         global $xmlConfig;
 
         $object = $xmlConfig->get($this->getXPath());
@@ -104,6 +138,7 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
 
         $initd = new OMVSysVInitScript($this->getName(), true);
         $initd->exec();
+*/
     }
 
     /**
@@ -111,46 +146,34 @@ class OMVModuleFail2ban extends OMVModuleServiceAbstract
      */
     public function stopService()
     {
+		$systemCtl = new \OMV\System\SystemCtl($this->getName());
+		$systemCtl->disable(TRUE);
+/*		
         $initd = new OMVSysVInitScript($this->getName());
         $initd->exec();
+*/
     }
 
     /**
      * Bind listeners.
      */
-    public function bindListeners(OMVNotifyDispatcher $dispatcher)
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
     {
 	$dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePath(),
-            array($this, "setDirty"));
-
+			$this->getEventMessagePath(),
+			[ $this, "setDirty" ]);
+/*			
+             array($this, "setDirty"));
+*/
+			
         $dispatcher->addListener(
 	    OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 	    "org.openmediavault.services.fail2ban.jails.jail",
-	    array($this, "setDirty"));
+		[ $this, "setDirty" ]);
+		
+//	    array($this, "setDirty"));
     }
 }
 
-// Register module
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleFail2ban());
-
-// Register new logfile type.
-OMVLogFile::registerType("fail2ban", array(
-  "filename" => "fail2ban",
-  "filepath" => "/var/log/fail2ban.log",
-  "regex" => "/^(\S+\s+\S+)(,\S+) (.*)$/",
-  "columns" => array(
-          "ts" => array(
-                  "index" => 1,
-                  "func" => create_function('$v', 'return strpdate($v,"Y-m-d G:i:s");')
-          ),
-          "date" => array(
-                  "index" => 1,
-                  "func" => create_function('$v','return strftime("%c", strpdate($v,"Y-m-d G:i:s"));')
-          ),
-          "message" => 3
-  )));
 ?>
-
