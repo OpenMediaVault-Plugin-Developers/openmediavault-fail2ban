@@ -1,0 +1,41 @@
+{
+	"type"     : "config",
+	"id"       : "conf.service.fail2ban.jail",
+	"title"    : "fail2ban jail",
+	"queryinfo": {
+		"xpath"      : "//services/fail2ban/jails/jail",
+		"iterable"   : true,
+		"idproperty" : "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type"    : "string",
+			"format"  : "uuidv4"
+		},
+		"enable": {
+			"type"    : "boolean",
+			"default" : false
+		},
+		"name": {
+			"type"    : "string"
+		},
+		"port": {
+			"type"    : "string"
+		},
+		"maxretry": {
+			"type"    : "string",
+			"default" : "3" 
+		},
+		"bantime": {
+			"type"    : "string",
+			"default" : "604800"
+		},
+		"filter": {
+			"type"    : "string"
+		},
+		"logpath": {
+			"type"    : "string",
+			"default" : "/var/log/"
+		}
+	}
+}
