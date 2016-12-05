@@ -5,17 +5,13 @@ To Build :
 
 $ apt-get install build-essential fakeroot debhelper libfile-fcntllock-perl
 
-$ git clone https://github.com/prbond/openmediavault-fail2ban
+$ git clone https://github.com/OpenMediaVault-Plugin-Developers/openmediavault-fail2ban.git
 
 $ cd openmediavault-fail2ban
 
 $ fakeroot debian/rules clean binary
 
-$ dpkg -i openmediavault-fail2ban_0.1.0_all.deb
-
-Depends :
-fail2ban
-python-central
+$ dpkg -i openmediavault-fail2ban_X.X.X_all.deb
 
 How to install depends :
-apt-get install fail2ban python-central
+apt-get install -f
