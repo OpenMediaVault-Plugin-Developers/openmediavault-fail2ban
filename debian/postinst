@@ -139,9 +139,21 @@ case "$1" in
                 object="${object}<logpath>/var/log/nginx*/*access*.log</logpath>"
                 omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
             fi
+	    
+            if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='5f2b2d25-726c-5dc8-ac05-79f303a62b35']"; then
+
+                object="<uuid>4e3a2d25-326c-4dc8-bc05-22f303a62b75</uuid>"
+                object="${object}<enable>0</enable>"
+                object="${object}<name>omv-webgui</name>"
+                object="${object}<port>http,https</port>"
+                object="${object}<maxretry>3</maxretry>"
+                object="${object}<bantime>-1</bantime>"
+                object="${object}<filter>omv-webgui</filter>"
+                object="${object}<logpath>/var/log/auth.log</logpath>"
+                omv_config_add_element "${SERVICE_XPATH}/jails" "jail" "${object}" true
+            fi
 
         fi
-
         # Activate package triggers. These triggers are only set during the
         # package installation.
         dpkg-trigger update-fixperms
