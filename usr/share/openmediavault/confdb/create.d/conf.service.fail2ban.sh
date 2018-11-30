@@ -123,7 +123,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='4e3a2d25-326c-4dc8-bc0
 fi
 
 if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='5f2b2d25-726c-5dc8-ac05-79f303a62b35']"; then
-    object="<uuid>4e3a2d25-326c-4dc8-bc05-22f303a62b75</uuid>"
+    object="<uuid>5f2b2d25-726c-5dc8-ac05-79f303a62b35</uuid>"
     object="${object}<enable>0</enable>"
     object="${object}<name>omv-webgui</name>"
     object="${object}<port>http,https</port>"

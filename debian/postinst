@@ -34,6 +34,8 @@ case "$1" in
         if [ -n "$2" ]; then
             omv-confdbadm migrate "conf.service.fail2ban" "${2}"
         fi
+
+        omv-mkconf fail2ban
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
