@@ -8,9 +8,11 @@ Standards-Version: 3.9.3
 
 Package: openmediavault-fail2ban
 Architecture: all
-Depends: ${misc:Depends}, openmediavault (>= 1.0.0), fail2ban, whois
-
+Depends: fail2ban,
+         openmediavault (>= 4.1.14),
+         whois,
+         ${misc:Depends}
 Description: OpenMediaVault Fail2ban plugin
- Protect OMV with Fail2ban. Fail2ban scans log files and bans IPs that 
- show the malicious signs -- too many password failures, seeking for 
+ Protect OMV with Fail2ban. Fail2ban scans log files and bans IPs that
+ show the malicious signs -- too many password failures, seeking for
  exploits, etc

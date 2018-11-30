@@ -1,8 +1,10 @@
 #!/bin/sh
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-# @copyright Copyright (c) 2014-2018 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2009-2013 Volker Theile
+# @copyright Copyright (c) 2013-2017 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,31 +21,19 @@
 
 set -e
 
-. /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-    purge)
-        SERVICE_XPATH_NAME="fail2ban"
-        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+SERVICE_XPATH_NAME="snapraid"
+SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
+SERVICE_XPATH_RULE="${SERVICE_XPATH}/rules/rule"
 
-        if omv_config_exists "${SERVICE_XPATH}"; then
-           omv_config_delete "${SERVICE_XPATH}"
-        fi
-    ;;
-
-    remove)
-    ;;
-
-    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-    ;;
-
-    *)
-       echo "postrm called with unknown argument '$1'" >&2
-       exit 1
-    ;;
-esac
-
-#DEBHELPER#
+count=$(omv_config_get_count "${SERVICE_XPATH_RULE}");
+index=1;
+while [ ${index} -le ${count} ]; do
+    if omv_config_exists "${SERVICE_XPATH_RULE}[position()=${index}]/rule"; then
+        omv_config_rename "${SERVICE_XPATH_RULE}[position()=${index}]/rule" "rule1"
+    fi
+    index=$(( ${index} + 1 ))
+done;
 
 exit 0
