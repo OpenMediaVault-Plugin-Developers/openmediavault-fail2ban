@@ -174,6 +174,7 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
                                 $result2,
                                 $exitStatus2
                             )
+                        );
                     }
                     $stats .= implode("\n", $output2);
                     $stats .= sprintf("\n\n");

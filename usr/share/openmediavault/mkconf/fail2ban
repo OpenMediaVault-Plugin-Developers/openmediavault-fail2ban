@@ -31,9 +31,16 @@ OMV_FAIL2BAN_MTA=${OMV_FAIL2BAN_MTA:-"sendmail"}
 OMV_FAIL2BAN_PROTOCOL=${OMV_FAIL2BAN_PROTOCOL:-"tcp"}
 OMV_FAIL2BAN_CHAIN=${OMV_FAIL2BAN_CHAIN:-"INPUT"}
 
+defaultJailConf="/etc/fail2ban/jails.d/defaults-debian.conf"
+
 # Generate configuration only if the service is enabled.
 if [ "$(omv_config_get "${OMV_FAIL2BAN_PLUGIN_XPATH}/enable")" != "1" ]; then
 	exit 0
+fi
+
+# remove default Debian jail conf file if it exists
+if [ -f "${defaultJailConf}" ]; then
+    rm -f ${defaultJailConf}
 fi
 
 # Create jail.conf

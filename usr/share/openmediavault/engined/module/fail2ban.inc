@@ -20,7 +20,7 @@
 class OMVModuleFail2ban extends \OMV\Engine\Module\ServiceAbstract
     implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus
 {
-    private function getName()
+    public function getName()
     {
         return 'fail2ban';
     }
