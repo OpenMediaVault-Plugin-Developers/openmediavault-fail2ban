@@ -1,6 +1,7 @@
 openmediavault-fail2ban (4.0) stable; urgency=low
 
   * Update for OMV 4.x
+  * Update locales
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 19 Dec 2018 07:09:42 -0600
 

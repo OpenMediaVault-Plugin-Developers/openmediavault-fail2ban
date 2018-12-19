@@ -3,16 +3,20 @@
 # This file is distributed under the same license as the openmediavault-fail2ban package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 16:42-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"PO-Revision-Date: 2017-11-26 22:44+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2018\n"
 "Language-Team: Russian (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/ru/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
@@ -21,121 +25,155 @@ msgid ""
 "A filter defines a regular expression which must match a pattern "
 "corresponding to a log-in failure or any other expression."
 msgstr ""
+"Фильтр определяет регулярное выражение, которое должно соответствовать "
+"шаблону, соответствующему ошибке входа в систему или любому другому "
+"выражению."
 
 msgid "Action"
-msgstr ""
+msgstr "Действие"
 
 msgid "Add Jail"
-msgstr ""
+msgstr "Добавить запрет"
 
 msgid "An email address to receive ban messages."
-msgstr ""
+msgstr "Адрес электронной почты для получения сообщений о запрете."
 
 msgid "Ban Time"
-msgstr ""
+msgstr "Время запрета"
 
 msgid "Ban time in seconds."
-msgstr ""
+msgstr "Время запрета в секундах"
 
 msgid "Bantime"
-msgstr ""
+msgstr "Определяет длительность времени запрета"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr ""
+"Может быть IP-адресом, маской CIDR или хостом DNS, разделенным пробелом для "
+"ввода нескольких ip-адресов или масок."
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и время"
 
 msgid "Destemail"
-msgstr ""
+msgstr "Адрес электронной почты"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)"
 msgstr ""
+"Длительность (в секундах) запрета IP. Отрицательное число для "
+"\"постоянного\" запрета. (604800 = 1 неделя)"
 
 msgid "Edit Jail"
-msgstr ""
+msgstr "Редактировать запрет"
 
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 msgid "Fail2ban"
-msgstr ""
+msgstr "Fail2ban"
 
 msgid "Fail2ban - Log"
-msgstr ""
+msgstr "Fail2ban - Файл журнала"
 
 msgid "Filter"
-msgstr ""
+msgstr "Фильтр"
 
 msgid "Findtime"
 msgstr ""
+"Findtime - определяет длительность интервала в секундах, за которое событие "
+"должно повториться определённое количество раз, после чего запрет вступит в "
+"силу."
 
 msgid "General settings"
-msgstr ""
+msgstr "Общие настройки"
 
 msgid "Ignoreip"
 msgstr ""
+"Ignoreip - IP–адреса, которые не должны быть заблокированы. Можно задать "
+"список IP-адресов разделённых пробелами, маску подсети, или имя DNS–сервера."
+" Не рекомендуется оставлять параметр ignoreip со значением по умолчанию "
+"127.0.0.1/8, это создаёт очевидную угрозу в многопользовательских системах —"
+" если злоумышленник получил доступ хотя–бы к одному shell–аккаунту, то он "
+"имеет возможность беспрепятственно запустить bruteforce–программу для атаки "
+"на root или других пользователей прямо с этого–же сервера."
 
 msgid "Jails"
-msgstr ""
+msgstr "Запреты"
 
 msgid "Log Path"
-msgstr ""
+msgstr "Путь к файлу журнала"
 
 msgid "Log path"
 msgstr ""
+"Log path - Путь к файлу журнала, который программа Fail2ban будет "
+"обрабатывать с помощью заданного ранее фильтра. Вся история удачных и "
+"неудачных входов в систему, в том числе и по SSH, по умолчанию записывается "
+"в log–файл /var/log/auth.log."
 
 msgid "Max Retry"
-msgstr ""
+msgstr "Максимально повторов"
 
 msgid "Max Retry in seconds."
-msgstr ""
+msgstr "Максимально повторов в секунду"
 
 msgid "Maxretry"
 msgstr ""
+"maxretry - количество подозрительных совпадений, после которых применяется "
+"правило. В контексте ssh — это число неудавшихся попыток логина, после "
+"которых происходит блокировка."
 
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
 msgstr ""
+"Количество совпадений (т. е. значение счетчика), которое инициирует действие"
+" на IP."
 
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Сервис отключен"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)"
 msgstr ""
+"Счетчик обнуляется, если нет совпадения в значении findtime секунд. (604800 "
+"= 1 неделя)"
 
 msgid "The log file to be scanned by the filter."
-msgstr ""
+msgstr "Файл журнала, проверяемый фильтром."
 
 msgid "The name of the jail."
-msgstr ""
+msgstr "Название правила запрета."
 
 msgid "The port of the jail."
-msgstr ""
+msgstr "Порт для запрета."
 
 msgid ""
 "action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an"
 " email with whois report and log lines."
+msgstr ""
+"action_= только запрет / action_mw= запретить и отправить уведомление по "
+"электронной почте / action_will= запретить и отправить письмо по электронной"
+" почте с отчётом whois и строками из файла журнала."
+
+msgid "fail2ban"
 msgstr ""

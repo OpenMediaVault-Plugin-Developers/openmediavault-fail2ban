@@ -3,139 +3,159 @@
 # This file is distributed under the same license as the openmediavault-fail2ban package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 16:42-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Language-Team: Spanish (Spain) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/es_ES/)\n"
+"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"PO-Revision-Date: 2017-11-26 22:44+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2018\n"
+"Language-Team: Spanish (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid ""
 "A filter defines a regular expression which must match a pattern "
 "corresponding to a log-in failure or any other expression."
 msgstr ""
+"Un filtro define una expresión regular que debe contener un patron de "
+"busqueda que corresponda a un error de acceso en el log"
 
 msgid "Action"
-msgstr ""
+msgstr "Acción"
 
 msgid "Add Jail"
-msgstr ""
+msgstr "Añadir Jail"
 
 msgid "An email address to receive ban messages."
-msgstr ""
+msgstr "Dirección de correo donde recibir avisos de baneo"
 
 msgid "Ban Time"
-msgstr ""
+msgstr "Tiempo de baneo"
 
 msgid "Ban time in seconds."
-msgstr ""
+msgstr "Tiempo de baneo en segundos"
 
 msgid "Bantime"
-msgstr ""
+msgstr "Tiempo Baneo"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr ""
+"Puede ser una Dirección IP, Una mascara CIDR, o un nombre de Host DNS, "
+"separados por espacio para multiples IP."
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Fecha & Hora"
 
 msgid "Destemail"
-msgstr ""
+msgstr "Mail de Destino"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)"
 msgstr ""
+"Duración (en segundos) del baneado. Un numero negativo indica ban. "
+"permanente. (604800 = Una semana)"
 
 msgid "Edit Jail"
-msgstr ""
+msgstr "Editar Jail"
 
 msgid "Enable"
-msgstr ""
+msgstr "Habilitar"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Habuilitado"
 
 msgid "Fail2ban"
-msgstr ""
+msgstr "Fail2ban"
 
 msgid "Fail2ban - Log"
-msgstr ""
+msgstr "Fail2ban - Log"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 msgid "Findtime"
-msgstr ""
+msgstr "Findtime"
 
 msgid "General settings"
-msgstr ""
+msgstr "Opciones"
 
 msgid "Ignoreip"
-msgstr ""
+msgstr "Ignorar IP"
 
 msgid "Jails"
-msgstr ""
+msgstr "Jails"
 
 msgid "Log Path"
-msgstr ""
+msgstr "Ruta del Log"
 
 msgid "Log path"
-msgstr ""
+msgstr "ruta del log"
 
 msgid "Max Retry"
-msgstr ""
+msgstr "Nº Max. de reintentos"
 
 msgid "Max Retry in seconds."
-msgstr ""
+msgstr "Intentos Max. en segundos."
 
 msgid "Maxretry"
-msgstr ""
+msgstr "Num.Max,Reintentos"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
 msgstr ""
+"Numero que al ser alcanzado dispara la acción definida para la IP. (valor "
+"del contador)"
 
 msgid "Port"
-msgstr ""
+msgstr "Puerto"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Servicio deshabilitado"
 
 msgid "Settings"
-msgstr ""
+msgstr "Opciones"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)"
 msgstr ""
+"El contador vuelve a cero si no ocurren incidencias en el tiempo definido en"
+" 'findtime' (604800 = 1 Semana)"
 
 msgid "The log file to be scanned by the filter."
-msgstr ""
+msgstr "Archivo de log a ser escaneado por el filtro."
 
 msgid "The name of the jail."
-msgstr ""
+msgstr "Nombre de la Jail."
 
 msgid "The port of the jail."
-msgstr ""
+msgstr "Puerto de la Jail."
 
 msgid ""
 "action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an"
 " email with whois report and log lines."
 msgstr ""
+"action_= Solo ban / action_mw=ban & envía un e-mail / action_mwl=ban & envia"
+" un e-mail con información adicional de whois y las lineas de log que han "
+"disparado la regla."
+
+msgid "fail2ban"
+msgstr "fail2ban"

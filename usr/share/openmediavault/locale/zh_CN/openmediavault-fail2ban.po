@@ -3,16 +3,20 @@
 # This file is distributed under the same license as the openmediavault-fail2ban package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# songming <by@songming.me>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 16:42-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"PO-Revision-Date: 2017-11-26 22:44+0000\n"
+"Last-Translator: songming <by@songming.me>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/zh_CN/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -23,30 +27,30 @@ msgid ""
 msgstr ""
 
 msgid "Action"
-msgstr ""
+msgstr "激活"
 
 msgid "Add Jail"
-msgstr ""
+msgstr "添加 Jail"
 
 msgid "An email address to receive ban messages."
-msgstr ""
+msgstr "接受禁止消息的邮箱地址。"
 
 msgid "Ban Time"
-msgstr ""
+msgstr "禁止时间"
 
 msgid "Ban time in seconds."
-msgstr ""
+msgstr "禁止多少秒。"
 
 msgid "Bantime"
-msgstr ""
+msgstr "禁止时间"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
-msgstr ""
+msgstr "可以是 IP 地址、CIDR 掩码、DNS 主机，或者多个 IP。"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "日期 & 时间"
 
 msgid "Destemail"
 msgstr ""
@@ -57,55 +61,55 @@ msgid ""
 msgstr ""
 
 msgid "Edit Jail"
-msgstr ""
+msgstr "编辑 Jail"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "Enabled"
-msgstr ""
+msgstr "已启用"
 
 msgid "Fail2ban"
-msgstr ""
+msgstr "Fail2ban"
 
 msgid "Fail2ban - Log"
-msgstr ""
+msgstr "Fail2ban - 日志"
 
 msgid "Filter"
-msgstr ""
+msgstr "筛选"
 
 msgid "Findtime"
-msgstr ""
+msgstr "查找时间"
 
 msgid "General settings"
-msgstr ""
+msgstr "常规设置"
 
 msgid "Ignoreip"
-msgstr ""
+msgstr "忽略"
 
 msgid "Jails"
-msgstr ""
+msgstr "Jails"
 
 msgid "Log Path"
-msgstr ""
+msgstr "日志路径"
 
 msgid "Log path"
-msgstr ""
+msgstr "日志路径"
 
 msgid "Max Retry"
-msgstr ""
+msgstr "最大尝试"
 
 msgid "Max Retry in seconds."
-msgstr ""
+msgstr "最多尝试几秒"
 
 msgid "Maxretry"
-msgstr ""
+msgstr "最大尝试"
 
 msgid "Message"
-msgstr ""
+msgstr "消息"
 
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
@@ -113,13 +117,13 @@ msgid ""
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "端口"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "服务关闭"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
@@ -130,12 +134,15 @@ msgid "The log file to be scanned by the filter."
 msgstr ""
 
 msgid "The name of the jail."
-msgstr ""
+msgstr "jail 名字"
 
 msgid "The port of the jail."
-msgstr ""
+msgstr "jail 端口"
 
 msgid ""
 "action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an"
 " email with whois report and log lines."
+msgstr ""
+
+msgid "fail2ban"
 msgstr ""

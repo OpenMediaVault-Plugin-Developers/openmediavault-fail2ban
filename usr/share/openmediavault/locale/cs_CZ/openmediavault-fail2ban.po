@@ -3,139 +3,156 @@
 # This file is distributed under the same license as the openmediavault-fail2ban package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 16:42-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"PO-Revision-Date: 2017-11-26 22:44+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2018\n"
 "Language-Team: Czech (Czech Republic) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid ""
 "A filter defines a regular expression which must match a pattern "
 "corresponding to a log-in failure or any other expression."
 msgstr ""
+"Filtr určuje regulární výraz který je třeba aby se shodoval se vzorcem "
+"odpovídajícím nepodařenému přihlášení nebo jakémukoli jinému výrazu."
 
 msgid "Action"
-msgstr ""
+msgstr "Akce"
 
 msgid "Add Jail"
-msgstr ""
+msgstr "Přidat vyhrazené prostředí"
 
 msgid "An email address to receive ban messages."
-msgstr ""
+msgstr "E-mailová adresa na kterou dostávat zprávy o vykázání z přístupu."
 
 msgid "Ban Time"
-msgstr ""
+msgstr "Vykázat na dobu"
 
 msgid "Ban time in seconds."
-msgstr ""
+msgstr "Doba na kterou vykázat (v sekundách)."
 
 msgid "Bantime"
-msgstr ""
+msgstr "Vykázat na dobu"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr ""
+"Může být IP adresa, CIDR maska nebo DNS název – vícero položek oddělujte "
+"mezerou."
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum a čas"
 
 msgid "Destemail"
-msgstr ""
+msgstr "Cílový e-mail"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)"
 msgstr ""
+"Trvání (v sekundách) vykázání IP adresy. Záporné číslo znamená „trvalé“ "
+"vykázání. (hodnota 604800 = 1 týden)"
 
 msgid "Edit Jail"
-msgstr ""
+msgstr "Upravit vyhrazené prostředí"
 
 msgid "Enable"
-msgstr ""
+msgstr "Zapnout"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Zapnuto"
 
 msgid "Fail2ban"
-msgstr ""
+msgstr "Fail2ban"
 
 msgid "Fail2ban - Log"
-msgstr ""
+msgstr "Fail2ban – záznam událostí"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtr"
 
 msgid "Findtime"
-msgstr ""
+msgstr "Čas hledání"
 
 msgid "General settings"
-msgstr ""
+msgstr "Obecná nastavení"
 
 msgid "Ignoreip"
-msgstr ""
+msgstr "Ignorovat IP adresu"
 
 msgid "Jails"
-msgstr ""
+msgstr "Vyhrazená prostředí"
 
 msgid "Log Path"
-msgstr ""
+msgstr "Popis umístění záznamu událostí (log)"
 
 msgid "Log path"
-msgstr ""
+msgstr "Popis umístění záznamu událostí (log)"
 
 msgid "Max Retry"
-msgstr ""
+msgstr "Nejvýše opakovaných pokusů"
 
 msgid "Max Retry in seconds."
-msgstr ""
+msgstr "Nejnižší přípustná prodleva opakovaných pokusů (v sekundách)"
 
 msgid "Maxretry"
-msgstr ""
+msgstr "Nejvýše opak. pokusů"
 
 msgid "Message"
-msgstr ""
+msgstr "Zpráva"
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
-msgstr ""
+msgstr "Počet shod (tj. hodnota čítače) která spustí vykázání dané IP adresy."
 
 msgid "Port"
-msgstr ""
+msgstr "Číslo portu"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Služba vypnuta"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)"
 msgstr ""
+"Po uplynutí ochranné doby (v sekundách), ve které nedošlo k opakování pokusu"
+" o přihlášení je čítač opět nastaven na nulu (hodnota 604800 = 1 týden)"
 
 msgid "The log file to be scanned by the filter."
-msgstr ""
+msgstr "Soubor se záznamem událostí (log) který skenovat tímto filtrem."
 
 msgid "The name of the jail."
-msgstr ""
+msgstr "Název pro vyhrazené prostředí."
 
 msgid "The port of the jail."
-msgstr ""
+msgstr "Port pro vyhrazené prostředí."
 
 msgid ""
 "action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an"
 " email with whois report and log lines."
 msgstr ""
+"action_= pouze vykázat / action_mw= vykázat a poslat e-mail / action_mwl= "
+"vykázat a poslat e-mail s výpisem whois a řádky ze záznamu událostí."
+
+msgid "fail2ban"
+msgstr "fail2ban"
