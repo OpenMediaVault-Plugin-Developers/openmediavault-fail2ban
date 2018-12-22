@@ -22,11 +22,19 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+
+defaultConf="/etc/fail2ban/jail.d/defaults-debian.conf"
+
 case "$1" in
     configure)
         # Activate package triggers.
         dpkg-trigger update-fixperms
         dpkg-trigger update-locale
+
+        if [ -f "${defaultConf}" ]; then
+            echo "Removing ${defaultConf}..."
+            rm ${defaultConf}
+        fi
 
         # Initialize and migrate configuration database.
         echo "Updating configuration database ..."

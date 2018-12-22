@@ -1,3 +1,9 @@
+openmediavault-fail2ban (4.0.1) stable; urgency=low
+
+  * Improve default file removal
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 22 Dec 2018 08:27:40 -0600
+
 openmediavault-fail2ban (4.0) stable; urgency=low
 
   * Update for OMV 4.x

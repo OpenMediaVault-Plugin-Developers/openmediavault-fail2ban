@@ -1,9 +1,0 @@
-#!/bin/bash
-
-defaultConf="/etc/fail2ban/jail.d/defaults-debian.conf"
-
-if [ -f "${defaultConf}" ]; then
-  rm ${defaultConf}
-fi
-
-exit 0
