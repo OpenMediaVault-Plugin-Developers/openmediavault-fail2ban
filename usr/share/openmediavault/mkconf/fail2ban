@@ -41,8 +41,8 @@ xmlstarlet sel -t \
     -o "[DEFAULT]" -n \
     -m "${OMV_FAIL2BAN_PLUGIN_XPATH}" \
           -v "concat('ignoreip = ',ignoreip)" -n \
-          -v "concat('fintime = ',findtime)" -n \
-          -v "concat('banime = ',bantime)" -n \
+          -v "concat('findtime = ',findtime)" -n \
+          -v "concat('bantime = ',bantime)" -n \
           -v "concat('maxretry = ',maxretry)" -n \
           -v "concat('destemail = ',destemail)" -n \
     -o "backend = ${OMV_FAIL2BAN_BACKEND}" -n \
