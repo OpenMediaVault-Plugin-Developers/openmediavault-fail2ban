@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2014-2018 OpenMediaVault Plugin Developers
+ * Copyright (C) 2014-2019 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,30 +36,6 @@ class OMVModuleFail2ban extends \OMV\Engine\Module\ServiceAbstract
             'enabled' => $object->get('enable'),
             'running' => $systemCtl->isActive()
         ];
-    }
-
-    public function applyConfig()
-    {
-        $cmd = new \OMV\System\Process('omv-mkconf', 'fail2ban');
-        $cmd->setRedirect2to1();
-        $cmd->execute();
-    }
-
-    public function startService()
-    {
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get('conf.service.fail2ban');
-        if (TRUE !== $object->get('enable'))
-            return;
-        // Start this service and enable the unit file.
-        $systemCtl = new \OMV\System\SystemCtl('fail2ban');
-        $systemCtl->enable(TRUE);
-    }
-
-    public function stopService()
-    {
-        $systemCtl = new \OMV\System\SystemCtl('fail2ban');
-        $systemCtl->disable(TRUE);
     }
 
     public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)

@@ -9,7 +9,7 @@ Standards-Version: 3.9.3
 Package: openmediavault-fail2ban
 Architecture: all
 Depends: fail2ban,
-         openmediavault (>= 4.1.14),
+         openmediavault (>= 5.1),
          whois,
          ${misc:Depends}
 Description: OpenMediaVault Fail2ban plugin

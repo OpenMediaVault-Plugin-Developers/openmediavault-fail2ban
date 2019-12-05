@@ -2,7 +2,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-# @copyright Copyright (c) 2014-2018 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2014-2019 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,11 +31,6 @@ case "$1" in
         dpkg-trigger update-fixperms
         dpkg-trigger update-locale
 
-        if [ -f "${defaultConf}" ]; then
-            echo "Removing ${defaultConf}..."
-            rm ${defaultConf}
-        fi
-
         # Initialize and migrate configuration database.
         echo "Updating configuration database ..."
         omv-confdbadm create "conf.service.fail2ban"
@@ -43,7 +38,7 @@ case "$1" in
             omv-confdbadm migrate "conf.service.fail2ban" "${2}"
         fi
 
-        omv-mkconf fail2ban
+        omv-salt deploy run fail2ban
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

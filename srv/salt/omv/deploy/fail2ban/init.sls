@@ -1,8 +1,6 @@
-#!/bin/sh
-#
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-# @copyright Copyright (c) 2014-2019 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2019 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,40 +15,5 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-set -e
-
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
-
-remove_action() {
-    dpkg-trigger update-fixperms
-}
-
-case "$1" in
-    purge)
-        remove_action
-
-        SERVICE_XPATH_NAME="fail2ban"
-        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
-
-        if omv_config_exists "${SERVICE_XPATH}"; then
-           omv_config_delete "${SERVICE_XPATH}"
-        fi
-    ;;
-
-    remove)
-        remove_action
-    ;;
-
-    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-    ;;
-
-    *)
-       echo "postrm called with unknown argument '$1'" >&2
-       exit 1
-    ;;
-esac
-
-#DEBHELPER#
-
-exit 0
+include:
+  - .{{ salt['pillar.get']('deploy_fail2ban', 'default') }}
