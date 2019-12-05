@@ -37,7 +37,7 @@ configure_fail2ban:
     - group: root
     - mode: 644
 
-remove_rsync_cron_scripts:
+remove_jail_conf_files:
   module.run:
     - file.find:
       - path: "{{ scripts_dir }}"
@@ -56,7 +56,7 @@ configure_fail2ban_jail_{{ jail.uuid }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 750
+    - mode: 644
 
 {% endfor %}
 
