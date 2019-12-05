@@ -16,6 +16,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 {% set config = salt['omv_conf.get']('conf.service.fail2ban') %}
+{% set script_prefix = salt['pillar.get']('default:OMV_FAIL2BAN_JAIL_PREFIX', 'openmediavault-') %}
+{% set scripts_dir = salt['pillar.get']('default:OMV_FAIL2BAN_JAIL_DIR', '/etc/fail2ban/jail.d') %}
 
 {% if config.enable | to_bool %}
 
@@ -27,13 +29,36 @@ configure_fail2ban:
   file.managed:
     - name: "/etc/fail2ban/jail.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-fail2fan-jail_conf.j2
+      - salt://{{ slspath }}/files/etc-fail2ban-jail_conf.j2
     - template: jinja
     - context:
         config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644
+
+remove_rsync_cron_scripts:
+  module.run:
+    - file.find:
+      - path: "{{ scripts_dir }}"
+      - iname: "{{ script_prefix }}*"
+      - delete: "f"
+
+{% for jail in config.jails.jail %}
+
+configure_fail2ban_jail_{{ jail.uuid }}:
+  file.managed:
+    - name: "{{ scripts_dir | path_join(script_prefix ~ jail.uuid) }}.conf{{ '' if jail.enable else '.disabled' }}"
+    - source:
+      - salt://{{ slspath }}/files/etc-fail2ban-jail_d-jail_conf.j2
+    - context:
+        jail: {{ jail | json }}
+    - template: jinja
+    - user: root
+    - group: root
+    - mode: 750
+
+{% endfor %}
 
 start_fail2ban_service:
   service.running:

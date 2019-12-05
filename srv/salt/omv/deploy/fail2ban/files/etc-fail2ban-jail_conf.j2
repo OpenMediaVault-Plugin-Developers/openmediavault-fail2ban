@@ -22,13 +22,3 @@ action_mwl = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(proto
              %(mta)s-whois-lines[name=%(__name__)s, dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
 
 action = %({{ config.action }})s
-
-{% for jail in config.jails.jail %}
-[{{ jail.name }}]
-enabled = {{ 'yes' if jail.enable | to_bool else 'no' }}
-port = {{ jail.port }}
-filter = {{ jail.filter }}
-logpath = {{ jail.logpath }}
-bantime = {{ jail.bantime }}
-maxretry = {{ jail.maxretry }}
-{% endfor %}
