@@ -1,3 +1,9 @@
+openmediavault-fail2ban (5.0.3) stable; urgency=low
+
+  * Restart fail2ban service when making jail changes
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 07 Dec 2019 16:10:39 -0600
+
 openmediavault-fail2ban (5.0.2) stable; urgency=low
 
   * Move jails to individual config files

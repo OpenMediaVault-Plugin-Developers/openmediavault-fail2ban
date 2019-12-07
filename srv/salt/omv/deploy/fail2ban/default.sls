@@ -66,6 +66,7 @@ start_fail2ban_service:
     - enable: True
     - watch:
       - file: configure_fail2ban
+      - file: configure_fail2ban_jail_*
 
 {% else %}
 
