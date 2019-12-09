@@ -2,7 +2,7 @@ Source: openmediavault-fail2ban
 Section: devel
 XB-Plugin-Section: network
 Priority: optional
-Maintainer: prbond <bond_jd@yahoo.fr>
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 Build-Depends: debhelper (>= 9 )
 Standards-Version: 3.9.3
 
