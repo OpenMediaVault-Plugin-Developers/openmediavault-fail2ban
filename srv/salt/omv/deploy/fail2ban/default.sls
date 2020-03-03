@@ -29,7 +29,7 @@ configure_fail2ban:
   file.managed:
     - name: "/etc/fail2ban/jail.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-fail2ban-jail_conf.j2
+      - salt://{{ tpldir }}/files/etc-fail2ban-jail_conf.j2
     - template: jinja
     - context:
         config: {{ config | json }}
@@ -50,7 +50,7 @@ configure_fail2ban_jail_{{ jail.uuid }}:
   file.managed:
     - name: "{{ scripts_dir | path_join(script_prefix ~ jail.uuid) }}.conf{{ '' if jail.enable else '.disabled' }}"
     - source:
-      - salt://{{ slspath }}/files/etc-fail2ban-jail_d-jail_conf.j2
+      - salt://{{ tpldir }}/files/etc-fail2ban-jail_d-jail_conf.j2
     - context:
         jail: {{ jail | json }}
     - template: jinja

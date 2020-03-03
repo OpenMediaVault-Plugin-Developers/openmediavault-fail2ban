@@ -1,3 +1,9 @@
+openmediavault-fail2ban (5.0.4) stable; urgency=low
+
+  * Replace 'slspath' with 'tpldir' for saltstack 3000
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 03 Mar 2020 06:04:58 -0600
+
 openmediavault-fail2ban (5.0.3) stable; urgency=low
 
   * Restart fail2ban service when making jail changes
