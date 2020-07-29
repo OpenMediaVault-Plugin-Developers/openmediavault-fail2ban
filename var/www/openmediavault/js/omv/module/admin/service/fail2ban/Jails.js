@@ -74,7 +74,7 @@ Ext.define("OMV.module.admin.service.fail2ban.Jail", {
             allowBlank: false,
             plugins: [{
                 ptype: "fieldinfo",
-                text: _("Max Retry in seconds.")
+                text: _("Number of matches (i.e. value of the counter) which triggers ban action on the IP.")
             }]
         },{
             xtype: "textfield",
