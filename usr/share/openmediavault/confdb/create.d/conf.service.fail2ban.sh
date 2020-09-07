@@ -34,7 +34,7 @@ if ! omv_config_exists "${SERVICE_XPATH}"; then
     omv_config_add_key "${SERVICE_XPATH}" "bantime" "604800"
     omv_config_add_key "${SERVICE_XPATH}" "maxretry" "3"
     omv_config_add_key "${SERVICE_XPATH}" "destemail" "root@localhost"
-    omv_config_add_node "${SERVICE_XPATH}" "action" "action_mwl"
+    omv_config_add_key "${SERVICE_XPATH}" "action" "action_mwl"
     omv_config_add_node "${SERVICE_XPATH}" "jails"
 fi
 
