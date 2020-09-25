@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-fail2ban package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# zubr139, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-30 09:25-0600\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
+"Last-Translator: zubr139, 2019\n"
 "Language-Team: Ukrainian (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +64,7 @@ msgid "Edit Jail"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "Увімкнути"
 
 msgid "Enabled"
 msgstr ""
@@ -102,10 +106,10 @@ msgid "Maxretry"
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "Повідомлення"
 
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
@@ -113,13 +117,13 @@ msgid ""
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Service disabled"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "

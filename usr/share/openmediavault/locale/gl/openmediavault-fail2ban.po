@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-fail2ban package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2020
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-30 09:25-0600\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2020\n"
 "Language-Team: Galician (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,124 +25,137 @@ msgid ""
 "A filter defines a regular expression which must match a pattern "
 "corresponding to a log-in failure or any other expression."
 msgstr ""
+"Un filtro define unha expresión regular que debe coincidir cun patrón "
+"correspondente a un fallo de inicio de sesión ou a calquera outra expresión."
 
 msgid "Action"
-msgstr ""
+msgstr "Acción"
 
 msgid "Add Jail"
-msgstr ""
+msgstr "Engadir unha gaiola"
 
 msgid "An email address to receive ban messages."
-msgstr ""
+msgstr "Un enderezo de correo-e para recibir mensaxes de exclusión."
 
 msgid "Ban Time"
-msgstr ""
+msgstr "Tempo de exclusión"
 
 msgid "Ban time in seconds."
-msgstr ""
+msgstr "Tempo de exclusión en segundos"
 
 msgid "Bantime"
-msgstr ""
+msgstr "Tempo de exclusión"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr ""
+"Pode ser un enderezo IP, unha máscara CIDR ou un servidor DNS, separado cun "
+"espazo para varios IP."
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Día e hora"
 
 msgid "Destemail"
-msgstr ""
+msgstr "Correo de destino"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)"
 msgstr ""
+"Duración (en segundos) da exclusión de IP. Número negativo para a "
+"prohibición «permanente». (604800 = 1 semana)"
 
 msgid "Edit Jail"
-msgstr ""
+msgstr "Editar a gaiola"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Activado"
 
 msgid "Fail2ban"
-msgstr ""
+msgstr "Fail2ban"
 
 msgid "Fail2ban - Log"
-msgstr ""
+msgstr "Fail2ban: rexistro"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 msgid "Findtime"
-msgstr ""
+msgstr "Tempo de busca"
 
 msgid "General settings"
-msgstr ""
+msgstr "Axustes xerais"
 
 msgid "Ignoreip"
-msgstr ""
+msgstr "IP a ignorar"
 
 msgid "Jails"
-msgstr ""
+msgstr "Gaiolas"
 
 msgid "Log Path"
-msgstr ""
+msgstr "Ruta do rexistro"
 
 msgid "Log path"
-msgstr ""
+msgstr "Ruta do rexistro"
 
 msgid "Max Retry"
-msgstr ""
+msgstr "Máx. de reintentos"
 
 msgid "Max Retry in seconds."
-msgstr ""
+msgstr "Máx. de reintentos en segundos"
 
 msgid "Maxretry"
-msgstr ""
+msgstr "Máx. de reintentos"
 
 msgid "Message"
-msgstr ""
+msgstr "M;ensaxe"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
 msgstr ""
+"Número de coincidencias (é dicir, o valor do contador) que desencadea a "
+"acción de exclusión na IP."
 
 msgid "Port"
-msgstr ""
+msgstr "Porto"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Servizo desactivado"
 
 msgid "Settings"
-msgstr ""
+msgstr "Axustes"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)"
 msgstr ""
+"O contador ponse a cero se non se atopa ningunha coincidencia dentro dos "
+"segundos de «tempo de busca». (604800 = 1 semana)"
 
 msgid "The log file to be scanned by the filter."
-msgstr ""
+msgstr "O ficheiro de rexistro que vai escanear o filtro."
 
 msgid "The name of the jail."
-msgstr ""
+msgstr "O nome da gaiola"
 
 msgid "The port of the jail."
-msgstr ""
+msgstr "O porto da gaiola"
 
 msgid ""
 "action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an"
 " email with whois report and log lines."
 msgstr ""
+"action_= só excluír / action_mw= excluír e enviar un correo electrónico / "
+"action_mwl= excluír e enviar un correo electrónico co informe de «whois» e "
+"as liñas de rexistro."
 
 msgid "fail2ban"
-msgstr ""
+msgstr "fail2ban"
