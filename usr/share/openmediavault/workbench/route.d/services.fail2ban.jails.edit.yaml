@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/fail2ban/jails/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Edit jail.")
+  component: omv-services-fail2ban-jails-form-page

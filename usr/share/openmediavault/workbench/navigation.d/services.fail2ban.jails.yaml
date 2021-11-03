@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.fail2ban.jails"
+  text: _("Jails")
+  position: 20
+  icon: jail
+  url: "/services/fail2ban/jails"

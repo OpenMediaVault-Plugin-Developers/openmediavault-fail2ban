@@ -1,0 +1,63 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-fail2ban-jails-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: a982a76d-e8a5-4a65-d800-5748da327abd
+    sorters:
+      - dir: asc
+        prop: name
+    store:
+      proxy:
+        service: Fail2ban
+        get:
+          method: getJailList
+    columns:
+      - name: _("Enabled")
+        prop: enable
+        sortable: true
+        cellTemplateName: checkIcon
+        flexGrow: 1
+      - name: _("Name")
+        prop: name
+        sortable: true
+        flexGrow: 2
+      - name: _("Port")
+        prop: port
+        sortable: true
+        flexGrow: 2
+      - name: _("Max Retry")
+        prop: maxretry
+        sortable: true
+        flexGrow: 1
+      - name: _("Ban Time")
+        prop: bantime
+        sortable: true
+        flexGrow: 1
+      - name: _("Filter")
+        prop: filter
+        sortable: true
+        flexGrow: 2
+      - name: _("Log Path")
+        prop: logpath
+        sortable: true
+        flexGrow: 2
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/services/fail2ban/jails/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/services/fail2ban/jails/edit/{{ _selected[0].uuid }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Fail2ban
+            method: deleteJail
+            params:
+              uuid: "{{ _selected[0].uuid }}"

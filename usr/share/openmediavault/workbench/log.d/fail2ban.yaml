@@ -1,0 +1,20 @@
+version: "1.0"
+type: log
+data:
+  id: fail2ban
+  text: _("Fail2ban")
+  columns:
+  - name: _("Date & Time")
+    sortable: true
+    prop: date
+    cellTemplateName: localeDateTime
+    flexGrow: 1
+  - name: _("Message")
+    sortable: true
+    prop: message
+    flexGrow: 2
+  request:
+    service: LogFile
+    method: getList
+    params:
+      id: fail2ban

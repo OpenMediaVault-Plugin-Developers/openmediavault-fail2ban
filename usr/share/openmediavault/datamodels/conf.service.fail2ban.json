@@ -1,74 +1,73 @@
 {
-	"type"     : "config",
-	"id"       : "conf.service.fail2ban",
-	"title"    : "fail2ban",
+	"type": "config",
+	"id": "conf.service.fail2ban",
+	"title": "fail2ban",
 	"queryinfo": {
-		"xpath"    : "//services/fail2ban",
-		"iterable" : false
+		"xpath": "//services/fail2ban",
+		"iterable": false
 	},
 	"properties": {
 		"enable": {
-			"type"    : "boolean",
-			"default" : false
+			"type": "boolean",
+			"default": false
 		},
 		"ignoreip": {
-			"type"    : "string",
-			"default" : "127.0.0.1"
+			"type": "string",
+			"default": "127.0.0.1"
 	        },
 		"findtime": {
-			"type"    : "string",
-			"default" : "604800"
+			"type": "integer",
+			"default": "604800"
 		},
 		"bantime": {
-			"type"    : "string",
-			"default" : "604800"
+			"type": "integer",
+			"default": "604800"
 		},
 		"maxretry": {
-			"type"    : "string",
-			"default" : "3"
+			"type": "integer",
+			"default": "3"
 		},
 		"destemail": {
-			"type"    : "string",
-			"default" : "root@localhost"
+			"type": "string",
+			"default": "root@localhost"
 		},
 		"action": {
-			"type"    : "string",
-			"enum"    : [ "action_", "action_mw", "action_mwl" ],
-			"default" : "action_mwl"
+			"type": "string",
+			"default": "action_mwl"
 		},
 		"jails": {
-			"type"      : "object",
+			"type": "object",
 			"properties": {
 				"jail": {
-					"type"  : "array",
-					"items" : {
-						"type"       : "object",
-						"properties" : {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
 							"uuid": {
-								"type"   : "string",
-								"format" : "uuidv4"
+								"type": "string",
+								"format": "uuidv4"
 							},
 							"enable": {
-								"type"    : "boolean",
-								"default" : false
+								"type": "boolean",
+								"default": false
 							},
 							"name": {
-								"type"    : "string"
+								"type": "string"
 							},
 							"port": {
-								"type"    : "string"
+								"type": "string"
 							},
 							"maxretry": {
-								"type"    : "string"
+								"type": "integer"
 							},
 							"bantime": {
-								"type"    : "string"
+								"type": "integer"
 							},
 							"filter": {
-								"type"    : "string"
+								"type": "string"
 							},
 							"logpath": {
-								"type"    : "string"
+								"type": "string"
 							}
 						}
 					}

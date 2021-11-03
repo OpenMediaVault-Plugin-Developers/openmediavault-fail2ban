@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/fail2ban/settings"
+  title: _("Settings")
+  editing: true
+  component: omv-services-fail2ban-settings-form-page

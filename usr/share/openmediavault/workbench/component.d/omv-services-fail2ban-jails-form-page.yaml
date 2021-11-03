@@ -1,0 +1,54 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-fail2ban-jails-form-page
+  type: formPage
+  config:
+    request:
+      service: Fail2ban
+      get:
+        method: getJail
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: setJail
+    fields:
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enable")
+        value: true
+      - type: textInput
+        name: name
+        label: _("Name")
+        hint: _("The name of the jail.")
+      - type: textInput
+        name: port
+        label: _("Port")
+        hint: _("The port of the jail.")
+      - type: numberInput
+        name: maxretry
+        label: _("Max retry")
+        hint: _("Number of matches (i.e. value of the counter) which triggers ban action on the IP.")
+      - type: numberInput
+        name: bantime
+        label: _("Ban time")
+        hint: _("Ban time in seconds.")
+      - type: textInput
+        name: filter
+        label: _("Filter")
+        hint: _("A filter defines a regular expression which must match a pattern corresponding to a log-in failure or any other expression.")
+      - type: textInput
+        name: logpath
+        label: _("Log path")
+        hint: _("The log file to be scanned by the filter.")
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/services/fail2ban/jails"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/fail2ban/jails"
+

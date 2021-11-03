@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/fail2ban/jails"
+  title: _("Jails")
+  component: omv-services-fail2ban-jails-datatable-page

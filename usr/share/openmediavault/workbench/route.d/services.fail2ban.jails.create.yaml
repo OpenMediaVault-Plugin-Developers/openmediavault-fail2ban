@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/fail2ban/jails/create"
+  title: _("Create")
+  notificationTitle: _("Created jail.")
+  component: omv-services-fail2ban-jails-form-page

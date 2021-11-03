@@ -3,8 +3,5 @@
 %:
 	dh $@
 
-override_dh_systemd_enable:
-	dh_systemd_enable --no-enable --name=fail2ban
-
-override_dh_systemd_start:
-	dh_systemd_start --no-start fail2ban.service
+override_dh_installsystemd:
+	dh_installsystemd --no-enable --no-start --name=fail2ban

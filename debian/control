@@ -3,13 +3,13 @@ Section: devel
 XB-Plugin-Section: network
 Priority: optional
 Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-Build-Depends: debhelper (>= 9 )
-Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 12 )
+Standards-Version: 3.9.6
 
 Package: openmediavault-fail2ban
 Architecture: all
 Depends: fail2ban,
-         openmediavault (>= 5.1),
+         openmediavault (>= 6),
          whois,
          ${misc:Depends}
 Description: OpenMediaVault Fail2ban plugin

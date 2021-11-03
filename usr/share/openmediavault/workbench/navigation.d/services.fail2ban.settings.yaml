@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.fail2ban.settings"
+  text: _("Settings")
+  position: 10
+  icon: "tune"
+  url: "/services/fail2ban/settings"

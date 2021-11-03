@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.fail2ban"
+  text: _("fail2ban")
+  icon: "mdi:arrow-horizontal-lock"
+  url: "/services/fail2ban"
