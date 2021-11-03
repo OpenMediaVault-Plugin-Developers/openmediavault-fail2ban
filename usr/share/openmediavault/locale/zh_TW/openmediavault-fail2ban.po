@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"POT-Creation-Date: 2021-11-03 17:57-0500\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2019\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/zh_TW/)\n"
@@ -29,39 +29,45 @@ msgstr "篩選器定義一則正規表示式，它必須匹配一個對應到登
 msgid "Action"
 msgstr "動作"
 
-msgid "Add Jail"
-msgstr "新增監牢"
-
 msgid "An email address to receive ban messages."
 msgstr "用來接收禁止訊息的電子郵件地址。"
 
 msgid "Ban Time"
 msgstr "禁止時間"
 
+msgid "Ban time"
+msgstr ""
+
 msgid "Ban time in seconds."
 msgstr "以秒計算的禁止時間。"
-
-msgid "Bantime"
-msgstr "Bantime"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr "可以是 IP 地址、CIDR 遮罩或 DNS 主機，多個 ip 以空白隔開。"
 
+msgid "Create"
+msgstr ""
+
+msgid "Created jail."
+msgstr ""
+
 msgid "Date & Time"
 msgstr "日期及時間"
 
-msgid "Destemail"
-msgstr "Destemail"
+msgid "Dest email"
+msgstr ""
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
-"'permanent' ban. (604800 = 1 week)"
-msgstr "對該 IP 的禁止期間(以秒計算)。負數表示 '永久' 禁止。(604800 = 1 週)"
+"'permanent' ban. (604800 = 1 week)."
+msgstr ""
 
-msgid "Edit Jail"
-msgstr "編輯監牢"
+msgid "Edit"
+msgstr ""
+
+msgid "Edit jail."
+msgstr ""
 
 msgid "Enable"
 msgstr "啟用"
@@ -72,20 +78,14 @@ msgstr "已啟用"
 msgid "Fail2ban"
 msgstr "Fail2ban"
 
-msgid "Fail2ban - Log"
-msgstr "Fail2ban - 日誌"
-
 msgid "Filter"
 msgstr "篩選器"
 
-msgid "Findtime"
-msgstr "Findtime"
+msgid "Find time"
+msgstr ""
 
-msgid "General settings"
-msgstr "一般設定"
-
-msgid "Ignoreip"
-msgstr "Ignoreip"
+msgid "Ignore IP"
+msgstr ""
 
 msgid "Jails"
 msgstr "監牢"
@@ -99,11 +99,8 @@ msgstr "日誌路徑"
 msgid "Max Retry"
 msgstr "最多重試時間"
 
-msgid "Max Retry in seconds."
-msgstr "以秒計算的最多重試時間。"
-
-msgid "Maxretry"
-msgstr "Maxretry"
+msgid "Max retry"
+msgstr ""
 
 msgid "Message"
 msgstr "訊息"
@@ -127,8 +124,8 @@ msgstr "設定"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
-"(604800 = 1 week)"
-msgstr "如果在 'findtime' 秒內沒有發現匹配，計數器會被歸零。(604800 = 1 週)"
+"(604800 = 1 week)."
+msgstr ""
 
 msgid "The log file to be scanned by the filter."
 msgstr "要被篩選器掃讀的日誌檔案。"

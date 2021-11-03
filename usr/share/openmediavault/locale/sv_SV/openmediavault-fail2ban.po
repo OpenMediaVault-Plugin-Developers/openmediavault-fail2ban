@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"POT-Creation-Date: 2021-11-03 17:57-0500\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018\n"
+"Last-Translator: efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,20 +31,17 @@ msgstr ""
 msgid "Action"
 msgstr "Åtgärd"
 
-msgid "Add Jail"
-msgstr "Lägg till häkte"
-
 msgid "An email address to receive ban messages."
 msgstr "En e-postadress för att få bannlysningsmeddelanden."
 
 msgid "Ban Time"
 msgstr "Bannlysningstid"
 
+msgid "Ban time"
+msgstr ""
+
 msgid "Ban time in seconds."
 msgstr "Bannlysningstid i sekunder"
-
-msgid "Bantime"
-msgstr "Bannlysningstid"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
@@ -53,21 +50,28 @@ msgstr ""
 "Kan vara en IP-adress, en CIDR-mask eller en DNS-värd, separera med plats "
 "för flera ip."
 
+msgid "Create"
+msgstr ""
+
+msgid "Created jail."
+msgstr ""
+
 msgid "Date & Time"
 msgstr "Datum & tid"
 
-msgid "Destemail"
-msgstr "Destemail"
+msgid "Dest email"
+msgstr ""
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
-"'permanent' ban. (604800 = 1 week)"
+"'permanent' ban. (604800 = 1 week)."
 msgstr ""
-"Varaktighet (i sekunder) för att IP ska bannlysas för. Negativt tal för "
-"\"permanent\" förbud. (604800 = 1 vecka)"
 
-msgid "Edit Jail"
-msgstr "Redigera häkte"
+msgid "Edit"
+msgstr ""
+
+msgid "Edit jail."
+msgstr ""
 
 msgid "Enable"
 msgstr "Aktivera"
@@ -78,20 +82,14 @@ msgstr "Aktiverad"
 msgid "Fail2ban"
 msgstr "Fail2ban"
 
-msgid "Fail2ban - Log"
-msgstr "Fail2ban - Logg"
-
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Findtime"
-msgstr "Findtime"
+msgid "Find time"
+msgstr ""
 
-msgid "General settings"
-msgstr "Allmänna inställningar"
-
-msgid "Ignoreip"
-msgstr "Ignoreip"
+msgid "Ignore IP"
+msgstr ""
 
 msgid "Jails"
 msgstr "Häkten"
@@ -105,11 +103,8 @@ msgstr "Logg sökväg"
 msgid "Max Retry"
 msgstr "Max omförsök"
 
-msgid "Max Retry in seconds."
-msgstr "Max omförsök i sekunder"
-
-msgid "Maxretry"
-msgstr "Maxretry"
+msgid "Max retry"
+msgstr ""
 
 msgid "Message"
 msgstr "Meddelande"
@@ -135,10 +130,8 @@ msgstr "Inställningar"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
-"(604800 = 1 week)"
+"(604800 = 1 week)."
 msgstr ""
-"Räknaren är inställd på noll om ingen matchning hittas inom \"findtime\" "
-"sekunder. (604800 = 1 vecka)"
 
 msgid "The log file to be scanned by the filter."
 msgstr "Loggfilen som ska skannas av filtret."
@@ -157,4 +150,4 @@ msgstr ""
 "action_mwl = bannlys och skicka en e-post med whois-rapport och loggrader."
 
 msgid "fail2ban"
-msgstr ""
+msgstr "fail2ban"

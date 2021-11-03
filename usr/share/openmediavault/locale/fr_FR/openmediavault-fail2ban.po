@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"POT-Creation-Date: 2021-11-03 17:57-0500\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
 "Last-Translator: Axel Cantenys, 2020\n"
 "Language-Team: French (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/fr/)\n"
@@ -31,20 +31,17 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
-msgid "Add Jail"
-msgstr "Ajouter une prison"
-
 msgid "An email address to receive ban messages."
 msgstr "Une adresse e-mail pour recevoir des messages d'exclusion."
 
 msgid "Ban Time"
 msgstr "Temps d'exclusion"
 
+msgid "Ban time"
+msgstr ""
+
 msgid "Ban time in seconds."
 msgstr "Temps d'exclusion en secondes"
-
-msgid "Bantime"
-msgstr "Temps d'exclusion"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
@@ -53,21 +50,28 @@ msgstr ""
 "Peut être une adresse IP, un masque CIDR ou un hôte DNS, séparez avec un "
 "espace pour plusieurs IP."
 
+msgid "Create"
+msgstr ""
+
+msgid "Created jail."
+msgstr ""
+
 msgid "Date & Time"
 msgstr "Date et heure"
 
-msgid "Destemail"
-msgstr "Mél de destination"
+msgid "Dest email"
+msgstr ""
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
-"'permanent' ban. (604800 = 1 week)"
+"'permanent' ban. (604800 = 1 week)."
 msgstr ""
-"Durée (en secondes) pour l'IP à exclure. Un numéro négatif une exclusion "
-"permanente. (Exemple : 604800 = 1 semaine)"
 
-msgid "Edit Jail"
-msgstr "Modifier la prison"
+msgid "Edit"
+msgstr ""
+
+msgid "Edit jail."
+msgstr ""
 
 msgid "Enable"
 msgstr "Activer"
@@ -78,20 +82,14 @@ msgstr "Activé"
 msgid "Fail2ban"
 msgstr "Fail2ban"
 
-msgid "Fail2ban - Log"
-msgstr "Fail2ban - Journal"
-
 msgid "Filter"
 msgstr "Filtre"
 
-msgid "Findtime"
-msgstr "Temps de recherche"
+msgid "Find time"
+msgstr ""
 
-msgid "General settings"
-msgstr "Réglages généraux"
-
-msgid "Ignoreip"
-msgstr "IP à ignorer"
+msgid "Ignore IP"
+msgstr ""
 
 msgid "Jails"
 msgstr "Prisons"
@@ -105,11 +103,8 @@ msgstr "Chemin du journal"
 msgid "Max Retry"
 msgstr "Essai maximum"
 
-msgid "Max Retry in seconds."
-msgstr "Essai maximum en secondes."
-
-msgid "Maxretry"
-msgstr "Essai maximum"
+msgid "Max retry"
+msgstr ""
 
 msgid "Message"
 msgstr "Message"
@@ -135,10 +130,8 @@ msgstr "Paramètres"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
-"(604800 = 1 week)"
+"(604800 = 1 week)."
 msgstr ""
-"Le compteur est mis à zéro si aucune correspondance n'est trouvée dans les "
-"dernière secondes spécifiées. (604800 = 1 semaine)"
 
 msgid "The log file to be scanned by the filter."
 msgstr "Le fichier journal à analyser par le filtre."

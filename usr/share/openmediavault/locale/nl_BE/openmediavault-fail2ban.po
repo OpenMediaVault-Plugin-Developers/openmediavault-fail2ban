@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-30 09:25-0600\n"
+"POT-Creation-Date: 2021-11-03 17:57-0500\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
 "Language-Team: Dutch (Belgium) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/nl_BE/)\n"
 "MIME-Version: 1.0\n"
@@ -25,19 +25,16 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-msgid "Add Jail"
-msgstr ""
-
 msgid "An email address to receive ban messages."
 msgstr ""
 
 msgid "Ban Time"
 msgstr ""
 
-msgid "Ban time in seconds."
+msgid "Ban time"
 msgstr ""
 
-msgid "Bantime"
+msgid "Ban time in seconds."
 msgstr ""
 
 msgid ""
@@ -45,18 +42,27 @@ msgid ""
 "multiple ip."
 msgstr ""
 
+msgid "Create"
+msgstr ""
+
+msgid "Created jail."
+msgstr ""
+
 msgid "Date & Time"
 msgstr ""
 
-msgid "Destemail"
+msgid "Dest email"
 msgstr ""
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
-"'permanent' ban. (604800 = 1 week)"
+"'permanent' ban. (604800 = 1 week)."
 msgstr ""
 
-msgid "Edit Jail"
+msgid "Edit"
+msgstr ""
+
+msgid "Edit jail."
 msgstr ""
 
 msgid "Enable"
@@ -68,19 +74,13 @@ msgstr ""
 msgid "Fail2ban"
 msgstr ""
 
-msgid "Fail2ban - Log"
-msgstr ""
-
 msgid "Filter"
 msgstr ""
 
-msgid "Findtime"
+msgid "Find time"
 msgstr ""
 
-msgid "General settings"
-msgstr ""
-
-msgid "Ignoreip"
+msgid "Ignore IP"
 msgstr ""
 
 msgid "Jails"
@@ -95,10 +95,7 @@ msgstr ""
 msgid "Max Retry"
 msgstr ""
 
-msgid "Max Retry in seconds."
-msgstr ""
-
-msgid "Maxretry"
+msgid "Max retry"
 msgstr ""
 
 msgid "Message"
@@ -123,7 +120,7 @@ msgstr ""
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
-"(604800 = 1 week)"
+"(604800 = 1 week)."
 msgstr ""
 
 msgid "The log file to be scanned by the filter."
