@@ -4,5 +4,5 @@ data:
   path: "services.fail2ban.jails"
   text: _("Jails")
   position: 20
-  icon: jail
+  icon: "mdi:fence"
   url: "/services/fail2ban/jails"
