@@ -61,4 +61,3 @@ data:
         execute:
           type: url
           url: "/services/fail2ban/jails"
-
