@@ -36,6 +36,9 @@
 		"logpath": {
 			"type": "string",
 			"default": "/var/log/"
+		},
+		"chain": {
+			"type": "string"
 		}
 	}
 }

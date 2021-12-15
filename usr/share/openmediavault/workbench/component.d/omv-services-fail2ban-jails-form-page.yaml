@@ -52,6 +52,10 @@ data:
         name: logpath
         label: _("Log path")
         hint: _("The log file to be scanned by the filter.")
+      - type: textInput
+        name: chain
+        label: _("Chain")
+        hint: _("The chain to use. Leave empty to use the default.")
     buttons:
       - template: submit
         execute:

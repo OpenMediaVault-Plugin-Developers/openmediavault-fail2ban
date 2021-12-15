@@ -35,6 +35,10 @@
 			"type": "string",
 			"default": "action_mwl"
 		},
+		"chain": {
+			"type": "string",
+			"default": "INPUT"
+		},
 		"jails": {
 			"type": "object",
 			"properties": {
@@ -67,6 +71,9 @@
 								"type": "string"
 							},
 							"logpath": {
+								"type": "string"
+							},
+							"chain": {
 								"type": "string"
 							}
 						}

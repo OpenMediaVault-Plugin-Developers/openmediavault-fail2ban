@@ -65,6 +65,11 @@ data:
             - ["action_mw", "action_mw"]
             - ["action_mwl", "action_mwl"]
         hint: _("action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an email with whois report and log lines.")
+      - type: textInput
+        name: chain
+        label: _("Chain")
+        value: "INPUT"
+        hint: _("The default chain to use. You most likely want to use INPUT, unless you want to apply jails to Docker containers instead, then you should use DOCKER-USER.")
     buttons:
       - template: submit
       - template: cancel
