@@ -3,6 +3,7 @@
 {% set banaction = salt['pillar.get']('default:OMV_FAIL2BAN_BANACTION', 'iptables-multiport') -%}
 {% set mta = salt['pillar.get']('default:OMV_FAIL2BAN_MTA', 'sendmail') -%}
 {% set protocol = salt['pillar.get']('default:OMV_FAIL2BAN_PROTOCOL', 'tcp') -%}
+{% set chain = salt['pillar.get']('default:OMV_FAIL2BAN_CHAIN', 'INPUT') -%}
 [DEFAULT]
 ignoreip = {{ config.ignoreip }}
 findtime = {{ config.findtime }}
@@ -13,7 +14,7 @@ backend = {{ backend }}
 banaction = {{ banaction }}
 mta = {{ mta }}
 protocol = {{ protocol }}
-chain = {{ config.chain }}
+chain = {{ config.chain | default(chain, true) }}
 action_ = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
 action_mw = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
             %(mta)s-whois[name=%(__name__)s, dest="%(destemail)s", protocol="%(protocol)s", chain="%(chain)s"]
