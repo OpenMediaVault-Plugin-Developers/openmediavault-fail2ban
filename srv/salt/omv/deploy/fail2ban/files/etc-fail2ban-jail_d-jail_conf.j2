@@ -5,3 +5,6 @@ filter = {{ jail.filter }}
 logpath = {{ jail.logpath }}
 bantime = {{ jail.bantime }}
 maxretry = {{ jail.maxretry }}
+{% if jail.chain | length %}
+chain = {{ jail.chain }}
+{% endif %}

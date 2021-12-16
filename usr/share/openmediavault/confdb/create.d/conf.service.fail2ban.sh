@@ -35,55 +35,60 @@ if ! omv_config_exists "${SERVICE_XPATH}"; then
     omv_config_add_key "${SERVICE_XPATH}" "maxretry" "3"
     omv_config_add_key "${SERVICE_XPATH}" "destemail" "root@localhost"
     omv_config_add_key "${SERVICE_XPATH}" "action" "action_mwl"
+    omv_config_add_key "${SERVICE_XPATH}" "chain" "INPUT"
     omv_config_add_node "${SERVICE_XPATH}" "jails"
 fi
 
 if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='36b96e6c-9187-4b93-b0c6-05c6d3e29dc3']"; then
-     object="<uuid>36b96e6c-9187-4b93-b0c6-05c6d3e29dc3</uuid>"
-     object="${object}<enable>0</enable>"
-     object="${object}<name>ssh</name>"
-     object="${object}<port>ssh</port>"
-     object="${object}<maxretry>3</maxretry>"
-     object="${object}<bantime>-1</bantime>"
-     object="${object}<filter>sshd</filter>"
-     object="${object}<logpath>/var/log/auth.log</logpath>"
-     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
+    object="<uuid>36b96e6c-9187-4b93-b0c6-05c6d3e29dc3</uuid>"
+    object="${object}<enable>0</enable>"
+    object="${object}<name>ssh</name>"
+    object="${object}<port>ssh</port>"
+    object="${object}<maxretry>3</maxretry>"
+    object="${object}<bantime>-1</bantime>"
+    object="${object}<filter>sshd</filter>"
+    object="${object}<logpath>/var/log/auth.log</logpath>"
+    object="${object}<chain></chain>"
+    omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
  fi
 
  if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='59650e01-5e07-4076-9b15-ce352f4b4356']"; then
-     object="<uuid>59650e01-5e07-4076-9b15-ce352f4b4356</uuid>"
-     object="${object}<enable>0</enable>"
-     object="${object}<name>ssh-ddos</name>"
-     object="${object}<port>ssh</port>"
-     object="${object}<maxretry>3</maxretry>"
-     object="${object}<bantime>-1</bantime>"
-     object="${object}<filter>sshd-ddos</filter>"
-     object="${object}<logpath>/var/log/auth.log</logpath>"
-     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
+    object="<uuid>59650e01-5e07-4076-9b15-ce352f4b4356</uuid>"
+    object="${object}<enable>0</enable>"
+    object="${object}<name>ssh-ddos</name>"
+    object="${object}<port>ssh</port>"
+    object="${object}<maxretry>3</maxretry>"
+    object="${object}<bantime>-1</bantime>"
+    object="${object}<filter>sshd-ddos</filter>"
+    object="${object}<logpath>/var/log/auth.log</logpath>"
+    object="${object}<chain></chain>"
+    omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
  fi
 
  if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='645ae684-0950-4fcf-92fc-eba1b88775b1']"; then
-     object="<uuid>645ae684-0950-4fcf-92fc-eba1b88775b1</uuid>"
-     object="${object}<enable>0</enable>"
-     object="${object}<name>apache-noscript</name>"
-     object="${object}<port>httpd,httpds</port>"
-     object="${object}<maxretry>3</maxretry>"
-     object="${object}<bantime>-1</bantime>"
-     object="${object}<filter>apache-noscript</filter>"
-     object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
-     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
+    object="<uuid>645ae684-0950-4fcf-92fc-eba1b88775b1</uuid>"
+    object="${object}<enable>0</enable>"
+    object="${object}<name>apache-noscript</name>"
+    object="${object}<port>httpd,httpds</port>"
+    object="${object}<maxretry>3</maxretry>"
+    object="${object}<bantime>-1</bantime>"
+    object="${object}<filter>apache-noscript</filter>"
+    object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
+    object="${object}<chain></chain>"
+    omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
 if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='6e3a7d25-326c-4dc8-bc05-63f303a62b60']"; then
-     object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b60</uuid>"
-     object="${object}<enable>0</enable>"
-     object="${object}<name>apache-404</name>"
-     object="${object}<port>httpd,httpds</port>"
-     object="${object}<maxretry>3</maxretry>"
-     object="${object}<bantime>-1</bantime>"
-     object="${object}<filter>apache-404</filter>"
-     object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
-     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
+    object="<uuid>6e3a7d25-326c-4dc8-bc05-63f303a62b60</uuid>"
+    object="${object}<enable>0</enable>"
+    object="${object}<name>apache-404</name>"
+    object="${object}<port>httpd,httpds</port>"
+    object="${object}<maxretry>3</maxretry>"
+    object="${object}<bantime>-1</bantime>"
+    object="${object}<filter>apache-404</filter>"
+    object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
+    object="${object}<chain></chain>"
+    omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
 if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='6e3a7d25-326c-4dc8-bc05-63f303a62b21']"; then
@@ -95,6 +100,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='6e3a7d25-326c-4dc8-bc0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>proftpd</filter>"
     object="${object}<logpath>/var/log/proftpd/proftpd.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -107,6 +113,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='7e9a7d35-326c-4dc8-bc0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>owncloud</filter>"
     object="${object}<logpath>/MyPath/owncloud.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -119,6 +126,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='4e3a2d25-326c-4dc8-bc0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>nginx-404</filter>"
     object="${object}<logpath>/var/log/nginx*/*access*.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -131,6 +139,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='5f2b2d25-726c-5dc8-ac0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>omv-webgui</filter>"
     object="${object}<logpath>/var/log/auth.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
