@@ -48,6 +48,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='36b96e6c-9187-4b93-b0c
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>sshd</filter>"
     object="${object}<logpath>/var/log/auth.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
  fi
 
@@ -60,6 +61,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='36b96e6c-9187-4b93-b0c
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>sshd-ddos</filter>"
     object="${object}<logpath>/var/log/auth.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
  fi
 
@@ -72,6 +74,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='36b96e6c-9187-4b93-b0c
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>apache-noscript</filter>"
     object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -84,6 +87,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='6e3a7d25-326c-4dc8-bc0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>apache-404</filter>"
     object="${object}<logpath>/var/log/apache*/*error.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -96,6 +100,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='6e3a7d25-326c-4dc8-bc0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>proftpd</filter>"
     object="${object}<logpath>/var/log/proftpd/proftpd.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -108,6 +113,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='7e9a7d35-326c-4dc8-bc0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>owncloud</filter>"
     object="${object}<logpath>/MyPath/owncloud.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -120,6 +126,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='4e3a2d25-326c-4dc8-bc0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>nginx-404</filter>"
     object="${object}<logpath>/var/log/nginx*/*access*.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
@@ -132,6 +139,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='5f2b2d25-726c-5dc8-ac0
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>omv-webgui</filter>"
     object="${object}<logpath>/var/log/auth.log</logpath>"
+    object="${object}<chain></chain>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
