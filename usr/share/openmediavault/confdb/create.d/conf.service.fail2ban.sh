@@ -53,11 +53,11 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='36b96e6c-9187-4b93-b0c
  if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='59650e01-5e07-4076-9b15-ce352f4b4356']"; then
      object="<uuid>59650e01-5e07-4076-9b15-ce352f4b4356</uuid>"
      object="${object}<enable>0</enable>"
-     object="${object}<name>ssh-ddos</name>"
+     object="${object}<name>sshd-ddos</name>"
      object="${object}<port>ssh</port>"
      object="${object}<maxretry>3</maxretry>"
      object="${object}<bantime>-1</bantime>"
-     object="${object}<filter>sshd-ddos</filter>"
+     object="${object}<filter>sshd</filter>"
      object="${object}<logpath>/var/log/auth.log</logpath>"
      omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
  fi
