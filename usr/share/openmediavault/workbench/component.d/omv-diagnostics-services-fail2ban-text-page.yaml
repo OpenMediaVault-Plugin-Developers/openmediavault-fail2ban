@@ -1,0 +1,11 @@
+version: "1.0"
+type: component
+data:
+  name: omv-diagnostics-services-fail2ban-text-page
+  type: textPage
+  config:
+    hasReloadButton: true
+    request:
+      service: Fail2ban
+      get:
+        method: getStats

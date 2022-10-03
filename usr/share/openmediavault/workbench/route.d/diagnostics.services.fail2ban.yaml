@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/diagnostics/services/fail2ban"
+  title: _("Fail2ban")
+  component: omv-diagnostics-services-fail2ban-text-page

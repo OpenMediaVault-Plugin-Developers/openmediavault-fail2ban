@@ -2,5 +2,5 @@ version: "1.0"
 type: route
 data:
   url: "/services/fail2ban"
-  title: _("fail2ban")
+  title: _("Fail2ban")
   component: omv-services-fail2ban-navigation-page
