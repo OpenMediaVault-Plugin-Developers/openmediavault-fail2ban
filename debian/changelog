@@ -1,3 +1,9 @@
+openmediavault-fail2ban (6.0.3) stable; urgency=low
+
+  * Add service diagnostics page
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 03 Oct 2022 18:46:41 -0500
+
 openmediavault-fail2ban (6.0.2) stable; urgency=low
 
   * Remove old apache jails
