@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# songming <by@songming.me>, 2018
+# songming <by@songming.me>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-03 17:57-0500\n"
+"POT-Creation-Date: 2022-10-03 18:47-0500\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: songming <by@songming.me>, 2018\n"
+"Last-Translator: songming <by@songming.me>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid ""
 "A filter defines a regular expression which must match a pattern "
 "corresponding to a log-in failure or any other expression."
-msgstr ""
+msgstr "筛选器定义了一个正则表达式，它必须匹配与登录失败或任何其他对应表达式。"
 
 msgid "Action"
 msgstr "激活"
@@ -36,7 +36,7 @@ msgid "Ban Time"
 msgstr "禁止时间"
 
 msgid "Ban time"
-msgstr ""
+msgstr "禁止时间"
 
 msgid "Ban time in seconds."
 msgstr "禁止多少秒。"
@@ -47,27 +47,27 @@ msgid ""
 msgstr "可以是 IP 地址、CIDR 掩码、DNS 主机，或者多个 IP。"
 
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 msgid "Created jail."
-msgstr ""
+msgstr "创建 jail。"
 
 msgid "Date & Time"
 msgstr "日期 & 时间"
 
 msgid "Dest email"
-msgstr ""
+msgstr "目的地Email"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)."
-msgstr ""
+msgstr "IP 禁止时间（以秒为单位）。负数表示 “永久”禁止。（604800 = 1 周）。"
 
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 msgid "Edit jail."
-msgstr ""
+msgstr "编辑 jail。"
 
 msgid "Enable"
 msgstr "启用"
@@ -82,10 +82,10 @@ msgid "Filter"
 msgstr "筛选"
 
 msgid "Find time"
-msgstr ""
+msgstr "查找时间"
 
 msgid "Ignore IP"
-msgstr ""
+msgstr "忽略 IP"
 
 msgid "Jails"
 msgstr "Jails"
@@ -100,7 +100,7 @@ msgid "Max Retry"
 msgstr "最大尝试"
 
 msgid "Max retry"
-msgstr ""
+msgstr "最大尝试"
 
 msgid "Message"
 msgstr "消息"
@@ -111,7 +111,7 @@ msgstr "名称"
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
-msgstr ""
+msgstr "触发禁止该 IP 的匹配数（即计数器的值）。"
 
 msgid "Port"
 msgstr "端口"
@@ -125,10 +125,10 @@ msgstr "设置"
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
-msgstr ""
+msgstr "如果在 '查找时间' 秒内未找到匹配项，则计数器归零。 （604800 = 1 周）。"
 
 msgid "The log file to be scanned by the filter."
-msgstr ""
+msgstr "筛选器要扫描的日志文件。"
 
 msgid "The name of the jail."
 msgstr "jail 名字"
@@ -140,6 +140,7 @@ msgid ""
 "action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an"
 " email with whois report and log lines."
 msgstr ""
+"action_= 仅禁止 / action_mw=禁止并发送电子邮件 / action_mwl= 禁止并发送带有 whois 报告和日志的电子邮件。"
 
 msgid "fail2ban"
-msgstr ""
+msgstr "fail2ban"

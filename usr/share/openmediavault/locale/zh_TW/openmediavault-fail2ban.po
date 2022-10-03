@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2019
+# kochin <kochinc@outlook.com>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-03 17:57-0500\n"
+"POT-Creation-Date: 2022-10-03 18:47-0500\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2019\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2021\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid ""
 "A filter defines a regular expression which must match a pattern "
 "corresponding to a log-in failure or any other expression."
-msgstr "篩選器定義一則正規表示式，它必須匹配一個對應到登入失敗或其他表示式之型樣。"
+msgstr "篩選器定義一則正規表示式，它匹配的型樣必須對應到登入失敗或任何其他表示式。"
 
 msgid "Action"
 msgstr "動作"
@@ -36,7 +36,7 @@ msgid "Ban Time"
 msgstr "禁止時間"
 
 msgid "Ban time"
-msgstr ""
+msgstr "禁止時間"
 
 msgid "Ban time in seconds."
 msgstr "以秒計算的禁止時間。"
@@ -47,27 +47,27 @@ msgid ""
 msgstr "可以是 IP 地址、CIDR 遮罩或 DNS 主機，多個 ip 以空白隔開。"
 
 msgid "Create"
-msgstr ""
+msgstr "新建"
 
 msgid "Created jail."
-msgstr ""
+msgstr "已建立監牢。"
 
 msgid "Date & Time"
 msgstr "日期及時間"
 
 msgid "Dest email"
-msgstr ""
+msgstr "目的地電子郵件"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)."
-msgstr ""
+msgstr "IP 被禁止的期間（已秒計算）。負值代表 '永遠' 禁止。（604800 = 1 週）。"
 
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 msgid "Edit jail."
-msgstr ""
+msgstr "編輯監牢"
 
 msgid "Enable"
 msgstr "啟用"
@@ -82,10 +82,10 @@ msgid "Filter"
 msgstr "篩選器"
 
 msgid "Find time"
-msgstr ""
+msgstr "搜尋時間"
 
 msgid "Ignore IP"
-msgstr ""
+msgstr "略過 IP"
 
 msgid "Jails"
 msgstr "監牢"
@@ -97,10 +97,10 @@ msgid "Log path"
 msgstr "日誌路徑"
 
 msgid "Max Retry"
-msgstr "最多重試時間"
+msgstr "最多重試次數"
 
 msgid "Max retry"
-msgstr ""
+msgstr "最多重試次數"
 
 msgid "Message"
 msgstr "訊息"
@@ -111,7 +111,7 @@ msgstr "名稱"
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
-msgstr "觸發對該 IP 禁止動作的匹配到次數(即計數器的值)。"
+msgstr "觸發對該 IP 禁止動作的匹配次數(即計數器的值)。"
 
 msgid "Port"
 msgstr "連接埠"
@@ -125,7 +125,7 @@ msgstr "設定"
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
-msgstr ""
+msgstr "若在 '搜尋時間' 秒數內沒有發現匹配，計數器會設成零。（604800 = 1 週）。"
 
 msgid "The log file to be scanned by the filter."
 msgstr "要被篩選器掃讀的日誌檔案。"

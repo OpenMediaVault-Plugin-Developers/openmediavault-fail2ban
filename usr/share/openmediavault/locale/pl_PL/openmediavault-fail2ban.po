@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the openmediavault-fail2ban package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2022
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-03 17:57-0500\n"
+"POT-Creation-Date: 2022-10-03 18:47-0500\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2022\n"
 "Language-Team: Polish (Poland) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,19 +27,19 @@ msgid ""
 msgstr ""
 
 msgid "Action"
-msgstr ""
+msgstr "Akcja"
 
 msgid "An email address to receive ban messages."
 msgstr ""
 
 msgid "Ban Time"
-msgstr ""
+msgstr "Czas blokady"
 
 msgid "Ban time"
-msgstr ""
+msgstr "Czas blokady"
 
 msgid "Ban time in seconds."
-msgstr ""
+msgstr "Czas blokady w sekundach"
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
@@ -43,16 +47,16 @@ msgid ""
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Utwórz"
 
 msgid "Created jail."
-msgstr ""
+msgstr "Utwórz więzienie"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data i czas"
 
 msgid "Dest email"
-msgstr ""
+msgstr "Kieruj do e-mail"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
@@ -60,49 +64,49 @@ msgid ""
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
 msgid "Edit jail."
-msgstr ""
+msgstr "Edytuj więzienie"
 
 msgid "Enable"
-msgstr ""
+msgstr "Włącz"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Włączone"
 
 msgid "Fail2ban"
-msgstr ""
+msgstr "Fail2ban"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtr"
 
 msgid "Find time"
-msgstr ""
+msgstr "Czas szukania"
 
 msgid "Ignore IP"
-msgstr ""
+msgstr "Ignoruj IP"
 
 msgid "Jails"
-msgstr ""
+msgstr "Więzienia"
 
 msgid "Log Path"
-msgstr ""
+msgstr "Ścieżka logów"
 
 msgid "Log path"
-msgstr ""
+msgstr "Ścieżka logów"
 
 msgid "Max Retry"
-msgstr ""
+msgstr "Maks. Prób"
 
 msgid "Max retry"
-msgstr ""
+msgstr "Maks. prób"
 
 msgid "Message"
-msgstr ""
+msgstr "Wiadomość"
 
 msgid "Name"
-msgstr ""
+msgstr "Nazwa"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
@@ -110,13 +114,13 @@ msgid ""
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Usługa wyłączona"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
@@ -127,7 +131,7 @@ msgid "The log file to be scanned by the filter."
 msgstr ""
 
 msgid "The name of the jail."
-msgstr ""
+msgstr "Nazwa więzienia"
 
 msgid "The port of the jail."
 msgstr ""
@@ -138,4 +142,4 @@ msgid ""
 msgstr ""
 
 msgid "fail2ban"
-msgstr ""
+msgstr "fail2ban"
