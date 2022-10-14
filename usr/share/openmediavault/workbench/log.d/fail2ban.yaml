@@ -6,7 +6,7 @@ data:
   columns:
     - name: _("Date & Time")
       sortable: true
-      prop: date
+      prop: ts
       cellTemplateName: localeDateTime
       flexGrow: 1
     - name: _("Message")

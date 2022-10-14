@@ -31,10 +31,6 @@ LogFileSpec::registerSpecification('fail2ban', [
             'index' => 1,
             'func' => function($v){return strpdate($v,'Y-m-d G:i:s');}
         ],
-        'date' => [
-            'index' => 1,
-            'func' => function($v){return strftime('%c', strpdate($v,'Y-m-d G:i:s'));}
-        ],
         'message' => 3
     ]
 ]);
