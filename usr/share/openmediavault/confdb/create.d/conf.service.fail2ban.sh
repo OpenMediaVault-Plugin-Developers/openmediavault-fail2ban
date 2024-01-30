@@ -46,7 +46,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='36b96e6c-9187-4b93-b0c
      object="${object}<maxretry>3</maxretry>"
      object="${object}<bantime>-1</bantime>"
      object="${object}<filter>sshd</filter>"
-     object="${object}<logpath>/var/log/auth.log</logpath>"
+     object="${object}<logpath></logpath>"
      omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
  fi
 
@@ -58,7 +58,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='36b96e6c-9187-4b93-b0c
      object="${object}<maxretry>3</maxretry>"
      object="${object}<bantime>-1</bantime>"
      object="${object}<filter>sshd</filter>"
-     object="${object}<logpath>/var/log/auth.log</logpath>"
+     object="${object}<logpath></logpath>"
      omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
  fi
 
@@ -106,7 +106,7 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='5f2b2d25-726c-5dc8-ac0
     object="${object}<maxretry>3</maxretry>"
     object="${object}<bantime>-1</bantime>"
     object="${object}<filter>omv-webgui</filter>"
-    object="${object}<logpath>/var/log/auth.log</logpath>"
+    object="${object}<logpath></logpath>"
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 

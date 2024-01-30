@@ -2,6 +2,10 @@
 enabled = {{ 'yes' if jail.enable | to_bool else 'no' }}
 port = {{ jail.port }}
 filter = {{ jail.filter }}
+{%- if jail.logpath | length > 1 %}
 logpath = {{ jail.logpath }}
+{%- else %}
+backend = systemd
+{%- endif %}
 bantime = {{ jail.bantime }}
 maxretry = {{ jail.maxretry }}
