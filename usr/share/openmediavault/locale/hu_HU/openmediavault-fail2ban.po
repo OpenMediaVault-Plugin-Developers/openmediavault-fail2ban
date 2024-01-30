@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2019
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 18:47-0500\n"
+"POT-Creation-Date: 2024-01-30 16:14-0600\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2019\n"
-"Language-Team: Hungarian (Hungary) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/hu_HU/)\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2023\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgid "Ban Time"
 msgstr "Kitiltási idő"
 
 msgid "Ban time"
-msgstr ""
+msgstr "Kitiltási idő"
 
 msgid "Ban time in seconds."
 msgstr "Kitiltási idő másodpercben."
@@ -51,27 +51,29 @@ msgstr ""
 "szóközzel elválasztva."
 
 msgid "Create"
-msgstr ""
+msgstr "Létrehozás"
 
 msgid "Created jail."
-msgstr ""
+msgstr "Börtön létrehozva."
 
 msgid "Date & Time"
 msgstr "Dátum és idő"
 
 msgid "Dest email"
-msgstr ""
+msgstr "Cél e-mail"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)."
 msgstr ""
+"Időtartam (másodpercben) a kitiltott IP-címek számára. A negatív szám "
+"állandó kitiltást jelent (1 hét = 604800)."
 
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 msgid "Edit jail."
-msgstr ""
+msgstr "Börtön szerkesztése"
 
 msgid "Enable"
 msgstr "Engedélyezés"
@@ -86,10 +88,10 @@ msgid "Filter"
 msgstr "Szűrő"
 
 msgid "Find time"
-msgstr ""
+msgstr "Keresési idő"
 
 msgid "Ignore IP"
-msgstr ""
+msgstr "IP kizárása"
 
 msgid "Jails"
 msgstr "Börtönök"
@@ -104,7 +106,7 @@ msgid "Max Retry"
 msgstr "Maximális próbálkozás"
 
 msgid "Max retry"
-msgstr ""
+msgstr "Maximális próbálkozás"
 
 msgid "Message"
 msgstr "Üzenet"
@@ -132,9 +134,14 @@ msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
 msgstr ""
+"A számláló 0 lesz, ha nincs találat a keresési idő alatt. (604800 = 1 hét)"
 
 msgid "The log file to be scanned by the filter."
 msgstr "A naplófájl, melyet a szűrő vizsgálni fog."
+
+msgid ""
+"The log file to be scanned by the filter.  Leave blank to scan systemd."
+msgstr ""
 
 msgid "The name of the jail."
 msgstr "Börtön neve"

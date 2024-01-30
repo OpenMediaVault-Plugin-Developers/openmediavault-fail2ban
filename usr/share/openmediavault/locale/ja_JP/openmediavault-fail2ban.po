@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2018
+# Toshihiro Kan <kansuke4649@gmail.com>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 18:47-0500\n"
+"POT-Creation-Date: 2024-01-30 16:14-0600\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2018\n"
-"Language-Team: Japanese (Japan) (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/ja_JP/)\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2023\n"
+"Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,7 +36,7 @@ msgid "Ban Time"
 msgstr "バン時間"
 
 msgid "Ban time"
-msgstr ""
+msgstr "Ban時間"
 
 msgid "Ban time in seconds."
 msgstr "秒単位でのバン時間。"
@@ -47,27 +47,27 @@ msgid ""
 msgstr "IPアドレス、CIDRマスク、DNSホストのいずれでもかまいません。複数のIPを区切るためにはスペースを使用してください。"
 
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 msgid "Created jail."
-msgstr ""
+msgstr "監獄を作成しました。"
 
 msgid "Date & Time"
 msgstr "日付と時間"
 
 msgid "Dest email"
-msgstr ""
+msgstr "メール宛先"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)."
-msgstr ""
+msgstr "禁止されるIPの時間(秒単位)。負の数は「永久」禁止を意味します。(604800 = 1週間)."
 
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 msgid "Edit jail."
-msgstr ""
+msgstr "監獄を編集"
 
 msgid "Enable"
 msgstr "有効化"
@@ -82,10 +82,10 @@ msgid "Filter"
 msgstr "フィルタ"
 
 msgid "Find time"
-msgstr ""
+msgstr "Find time"
 
 msgid "Ignore IP"
-msgstr ""
+msgstr "除外IP"
 
 msgid "Jails"
 msgstr "Jails"
@@ -100,7 +100,7 @@ msgid "Max Retry"
 msgstr "リトライの最大数"
 
 msgid "Max retry"
-msgstr ""
+msgstr "最大リトライ数"
 
 msgid "Message"
 msgstr "メッセージ"
@@ -125,10 +125,14 @@ msgstr "設定"
 msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
-msgstr ""
+msgstr "'findtime'秒以内に一致するものがない場合，カウンタは0になります。(604800 = 1週間)。"
 
 msgid "The log file to be scanned by the filter."
 msgstr "フィルタによってスキャンされるログファイル。"
+
+msgid ""
+"The log file to be scanned by the filter.  Leave blank to scan systemd."
+msgstr ""
 
 msgid "The name of the jail."
 msgstr "Jailの名前"

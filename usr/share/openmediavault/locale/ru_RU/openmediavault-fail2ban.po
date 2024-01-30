@@ -4,18 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Дмитрий <bardimnik@rambler.ru>, 2018
 # alex icon <valexmd.d@gmail.com>, 2019
+# Дмитрий <bardimnik@rambler.ru>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 18:47-0500\n"
+"POT-Creation-Date: 2024-01-30 16:14-0600\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: alex icon <valexmd.d@gmail.com>, 2019\n"
-"Language-Team: Russian (https://www.transifex.com/openmediavault-plugin-developers/teams/1854/ru/)\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2023\n"
+"Language-Team: Russian (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,7 +40,7 @@ msgid "Ban Time"
 msgstr "Время запрета"
 
 msgid "Ban time"
-msgstr ""
+msgstr "Время запрета"
 
 msgid "Ban time in seconds."
 msgstr "Время запрета в секундах"
@@ -53,27 +53,29 @@ msgstr ""
 "ввода нескольких ip-адресов или масок."
 
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 msgid "Created jail."
-msgstr ""
+msgstr "Создан запрет."
 
 msgid "Date & Time"
 msgstr "Дата и время"
 
 msgid "Dest email"
-msgstr ""
+msgstr "Адрес электронной почты"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)."
 msgstr ""
+"Продолжительность (в секундах) блокировки IP. Отрицательное число для "
+"«постоянного» бана. (604800 = 1 неделя)."
 
 msgid "Edit"
-msgstr ""
+msgstr "Изменить"
 
 msgid "Edit jail."
-msgstr ""
+msgstr "Изменённый запрет."
 
 msgid "Enable"
 msgstr "Включить"
@@ -88,10 +90,10 @@ msgid "Filter"
 msgstr "Фильтр"
 
 msgid "Find time"
-msgstr ""
+msgstr "Количество времени"
 
 msgid "Ignore IP"
-msgstr ""
+msgstr "Игнорировать IP"
 
 msgid "Jails"
 msgstr "Запреты"
@@ -106,7 +108,7 @@ msgid "Max Retry"
 msgstr "Максимально повторов"
 
 msgid "Max retry"
-msgstr ""
+msgstr "Максимальное количество попыток"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -134,9 +136,15 @@ msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
 msgstr ""
+"Счетчик обнуляется, если совпадение не найдено в течение секунд 'количество "
+"времени'. (604800 = 1 неделя)."
 
 msgid "The log file to be scanned by the filter."
 msgstr "Файл журнала, проверяемый фильтром."
+
+msgid ""
+"The log file to be scanned by the filter.  Leave blank to scan systemd."
+msgstr ""
 
 msgid "The name of the jail."
 msgstr "Название правила запрета."
