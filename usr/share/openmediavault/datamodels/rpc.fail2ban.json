@@ -1,79 +1,86 @@
-[{
-	"type": "rpc",
-	"id": "rpc.fail2ban.setsettings",
-	"params": {
-		"type": "object",
-		"properties": {
-			"enable": {
-				"type": "boolean",
-				"required": true
-			},
-			"ignoreip": {
-				"type": "string",
-				"required": true
-			},
-			"findtime": {
-				"type": "integer",
-				"required": true
-			},
-			"bantime": {
-				"type": "integer",
-				"required": true
-			},
-			"maxretry": {
-				"type": "integer",
-				"required": true
-			},
-			"destemail": {
-				"type": "string",
-				"required": true
-			},
-			"action": {
-				"type": "string",
-				"enum": [ "action_", "action_mw", "action_mwl" ],
-				"required": true
-			}
-		}
-	}
-},{
-	"type": "rpc",
-	"id": "rpc.fail2ban.setjail",
-	"params": {
-		"type": "object",
-		"properties": {
-			"uuid": {
-				"type": "string",
-				"format": "uuidv4",
-				"required": true
-			},
-			"enable": {
-				"type": "boolean",
-				"required": true
-			},
-			"name": {
-				"type": "string",
-				"required": true
-			},
-			"port": {
-				"type": "string",
-				"required": true
-			},
-			"maxretry": {
-				"type": "integer",
-				"required": true
-			},
-			"bantime": {
-				"type": "integer",
-				"required": true
-			},
-			"filter": {
-				"type": "string",
-				"required": true
-			},
-			"logpath": {
-				"type": "string",
-				"required": true
-			}
-		}
-	}
-}]
+[
+  {
+    "type": "rpc",
+    "id": "rpc.fail2ban.setsettings",
+    "params": {
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean",
+          "required": true
+        },
+        "ignoreip": {
+          "type": "string",
+          "required": true
+        },
+        "findtime": {
+          "type": "integer",
+          "required": true
+        },
+        "bantime": {
+          "type": "integer",
+          "required": true
+        },
+        "maxretry": {
+          "type": "integer",
+          "required": true
+        },
+        "destemail": {
+          "type": "string",
+          "required": true
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "action_",
+            "action_mw",
+            "action_mwl"
+          ],
+          "required": true
+        }
+      }
+    }
+  },
+  {
+    "type": "rpc",
+    "id": "rpc.fail2ban.setjail",
+    "params": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "uuidv4",
+          "required": true
+        },
+        "enable": {
+          "type": "boolean",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "port": {
+          "type": "string",
+          "required": true
+        },
+        "maxretry": {
+          "type": "integer",
+          "required": true
+        },
+        "bantime": {
+          "type": "integer",
+          "required": true
+        },
+        "filter": {
+          "type": "string",
+          "required": true
+        },
+        "logpath": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  }
+]
