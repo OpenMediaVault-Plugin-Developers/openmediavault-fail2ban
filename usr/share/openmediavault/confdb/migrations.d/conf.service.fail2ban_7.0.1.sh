@@ -15,11 +15,12 @@ fi
 jail="${xpath}[uuid='59650e01-5e07-4076-9b15-ce352f4b4356']"
 if omv_config_exists "${jail}"; then
   echo "Updating sshd-dos jail..."
+  omv_config_update "${jail}/logpath" ""
 fi
 
 jail="${xpath}[uuid='5f2b2d25-726c-5dc8-ac05-79f303a62b35']"
 if omv_config_exists "${jail}"; then
-  echo "Removing omv-webgui jail..."
+  echo "Updating omv-webgui jail..."
   omv_config_update "${jail}/logpath" ""
 fi
 
