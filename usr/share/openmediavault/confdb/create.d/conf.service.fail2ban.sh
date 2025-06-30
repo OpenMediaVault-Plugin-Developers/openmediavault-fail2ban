@@ -110,4 +110,17 @@ if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='5f2b2d25-726c-5dc8-ac0
     omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
 fi
 
+if ! omv_config_exists "${SERVICE_XPATH}/jails/jail[uuid='6f0cb653-d022-4edb-b68b-a8be4fe2e484']"; then
+    object="<uuid>6f0cb653-d022-4edb-b68b-a8be4fe2e484</uuid>"
+    object="${object}<enable>0</enable>"
+    object="${object}<name>samba</name>"
+    object="${object}<port>139,445</port>"
+    object="${object}<maxretry>3</maxretry>"
+    object="${object}<bantime>-1</bantime>"
+    object="${object}<filter>samba</filter>"
+    object="${object}<logpath>/var/log/samba/auth_json_audit.log</logpath>"
+# logpath depends on the samba's extra option as documented in samba filter file
+    omv_config_add_node_data "${SERVICE_XPATH}/jails" "jail" "${object}"
+fi
+
 exit 0
