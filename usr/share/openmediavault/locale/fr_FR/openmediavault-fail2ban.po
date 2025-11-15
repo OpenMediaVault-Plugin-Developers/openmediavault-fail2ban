@@ -5,15 +5,16 @@
 # 
 # Translators:
 # Axel Cantenys, 2020
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-30 16:14-0600\n"
+"POT-Creation-Date: 2025-11-15 23:06+0000\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: Axel Cantenys, 2020\n"
+"Last-Translator: Kevin Leclercq <nuklearstriker@gmail.com>, 2024\n"
 "Language-Team: French (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +39,7 @@ msgid "Ban Time"
 msgstr "Temps d'exclusion"
 
 msgid "Ban time"
-msgstr ""
+msgstr "Temps d'exclusion"
 
 msgid "Ban time in seconds."
 msgstr "Temps d'exclusion en secondes"
@@ -51,27 +52,29 @@ msgstr ""
 "espace pour plusieurs IP."
 
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 msgid "Created jail."
-msgstr ""
+msgstr "Créer une prison."
 
 msgid "Date & Time"
 msgstr "Date et heure"
 
 msgid "Dest email"
-msgstr ""
+msgstr "Mail de destination"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)."
 msgstr ""
+"Durée (en secondes) pour les IP a bannir. Nombre négatif pour un ban "
+"'permanant'. (604800 = 1 semaine)."
 
 msgid "Edit"
-msgstr ""
+msgstr "Editer"
 
 msgid "Edit jail."
-msgstr ""
+msgstr "Editer la prison."
 
 msgid "Enable"
 msgstr "Activer"
@@ -86,10 +89,10 @@ msgid "Filter"
 msgstr "Filtre"
 
 msgid "Find time"
-msgstr ""
+msgstr "Heure de découverte"
 
 msgid "Ignore IP"
-msgstr ""
+msgstr "Ignorer l'IP."
 
 msgid "Jails"
 msgstr "Prisons"
@@ -104,7 +107,7 @@ msgid "Max Retry"
 msgstr "Essai maximum"
 
 msgid "Max retry"
-msgstr ""
+msgstr "Essai maximum"
 
 msgid "Message"
 msgstr "Message"
@@ -132,13 +135,14 @@ msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
 msgstr ""
-
-msgid "The log file to be scanned by the filter."
-msgstr "Le fichier journal à analyser par le filtre."
+"Le compteur est mis à zéro si aucune correspondance n'est trouvée dans les «"
+" findtime » secondes. (604800 = 1 semaine)."
 
 msgid ""
 "The log file to be scanned by the filter.  Leave blank to scan systemd."
 msgstr ""
+"Le fichier journal à analyser par le filtre. Laisser vide pour scanner "
+"systemd."
 
 msgid "The name of the jail."
 msgstr "Le nom de la prison."

@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Andi Chandler <andi@gowling.com>, 2022
+# Andi Chandler <andi@gowling.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-30 16:14-0600\n"
+"POT-Creation-Date: 2025-11-15 23:06+0000\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>, 2022\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2024\n"
 "Language-Team: English (United Kingdom) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,12 +137,10 @@ msgstr ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
 
-msgid "The log file to be scanned by the filter."
-msgstr "The log file to be scanned by the filter."
-
 msgid ""
 "The log file to be scanned by the filter.  Leave blank to scan systemd."
 msgstr ""
+"The log file to be scanned by the filter.  Leave blank to scan systemd."
 
 msgid "The name of the jail."
 msgstr "The name of the jail."
