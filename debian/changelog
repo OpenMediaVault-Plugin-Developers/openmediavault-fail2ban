@@ -1,3 +1,9 @@
+openmediavault-fail2ban (8.0) stable; urgency=low
+
+  * Update for OMV 8
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 15 Nov 2025 23:06:03 +0000
+
 openmediavault-fail2ban (7.0.1) stable; urgency=low
 
   * Use systemd for jails by default

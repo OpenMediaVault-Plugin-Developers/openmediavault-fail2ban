@@ -52,6 +52,7 @@ data:
         name: logpath
         label: _("Log path")
         hint: _("The log file to be scanned by the filter.  Leave blank to scan systemd.")
+        value: ""
     buttons:
       - template: submit
         execute:
