@@ -158,7 +158,7 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
             $jailsTmp = str_replace(" ", "", $jailsTmp);
 
             if (strlen($jailsTmp) == 0) {
-                $stats .= implode("\n", "No jail enabled");
+                $stats .= gettext("No jail enabled");
             } else {
                 $jails = explode(",", $jailsTmp);
                 foreach ($jails as $jail) {
