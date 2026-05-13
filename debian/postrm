@@ -19,17 +19,31 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
+OMV_AVAILABLE=false
+if [ -f /etc/default/openmediavault ] && [ -f /usr/share/openmediavault/scripts/helper-functions ]; then
+    . /etc/default/openmediavault
+    . /usr/share/openmediavault/scripts/helper-functions
+    OMV_AVAILABLE=true
+fi
 
 remove_action() {
-    dpkg-trigger update-workbench
+    if [ "${OMV_AVAILABLE}" = "true" ]; then
+        dpkg-trigger update-workbench
+    fi
+}
+
+delete_config() {
+    if [ "${OMV_AVAILABLE}" = "true" ]; then
+        omv_config_delete "/config/services/fail2ban"
+    elif [ -f /etc/openmediavault/config.xml ] && command -v xmlstarlet >/dev/null 2>&1; then
+        xmlstarlet ed -L -d "/config/services/fail2ban" /etc/openmediavault/config.xml || true
+    fi
 }
 
 case "$1" in
     purge)
         remove_action
-        omv_config_delete "/config/services/fail2ban"
+        delete_config
     ;;
 
     remove)
