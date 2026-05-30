@@ -35,7 +35,7 @@ configure_fail2ban:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 remove_jail_conf_files:
   module.run:
@@ -56,7 +56,7 @@ configure_fail2ban_jail_{{ jail.uuid }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endfor %}
 
