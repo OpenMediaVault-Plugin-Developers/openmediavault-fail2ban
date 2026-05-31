@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 23:06+0000\n"
+"POT-Creation-Date: 2026-05-31 00:57+0000\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
 "Last-Translator: Trottel <trottel09@gmail.com>, 2022\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/cs_CZ/)\n"
@@ -114,6 +114,9 @@ msgstr "Zpráva"
 
 msgid "Name"
 msgstr "Název"
+
+msgid "No jail enabled"
+msgstr ""
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
