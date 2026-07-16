@@ -41,7 +41,7 @@ data:
         hint: _("Ban time in seconds.")
         validators:
           min: -1
-          max: 99999
+          max: 9999999
           patternType: integer
           required: true
       - type: textInput
