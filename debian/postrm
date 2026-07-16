@@ -40,10 +40,18 @@ delete_config() {
     fi
 }
 
+remove_jail_files() {
+    # Remove only the jail fragments this plugin generated; leave
+    # /etc/fail2ban/jail.conf and the fail2ban service/package alone.
+    rm -f /etc/fail2ban/jail.d/openmediavault-*.conf
+    rm -f /etc/fail2ban/jail.d/openmediavault-*.conf.disabled
+}
+
 case "$1" in
     purge)
         remove_action
         delete_config
+        remove_jail_files
     ;;
 
     remove)
