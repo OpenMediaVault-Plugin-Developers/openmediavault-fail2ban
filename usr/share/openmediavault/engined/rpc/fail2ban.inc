@@ -105,6 +105,8 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
             // Check uniqueness:
             $db->assertIsUnique($object, "uuid");
         }
+        // Ensure no other jail uses the same name.
+        $db->assertIsUnique($object, "name");
         $db->set($object);
         // Return the configuration object.
         return $object->getAssoc();
@@ -169,7 +171,7 @@ class OMVRpcServiceFail2ban extends \OMV\Rpc\ServiceAbstract
                     if (0 !== $exitStatus2) {
                         throw new \OMV\ExecException(
                             sprintf("%s->%s and results=%s and exitStatus=%s",
-                                $cmd->getCommandLine(),
+                                $cmd2->getCommandLine(),
                                 implode("\n", $output2),
                                 $result2,
                                 $exitStatus2
