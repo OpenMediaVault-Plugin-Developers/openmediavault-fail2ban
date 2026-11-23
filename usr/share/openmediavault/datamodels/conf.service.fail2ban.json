@@ -68,6 +68,10 @@
               },
               "logpath": {
                 "type": "string"
+              },
+              "chain": {
+                "type": "string",
+                "default": ""
               }
             }
           }

@@ -9,3 +9,6 @@ backend = systemd
 {%- endif %}
 bantime = {{ jail.bantime }}
 maxretry = {{ jail.maxretry }}
+{%- if jail.get('chain') %}
+chain = {{ jail.chain }}
+{%- endif %}

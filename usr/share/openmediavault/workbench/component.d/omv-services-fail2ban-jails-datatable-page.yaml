@@ -44,6 +44,10 @@ data:
         prop: logpath
         sortable: true
         flexGrow: 2
+      - name: _("Chain")
+        prop: chain
+        sortable: true
+        flexGrow: 1
     actions:
       - template: create
         execute:
