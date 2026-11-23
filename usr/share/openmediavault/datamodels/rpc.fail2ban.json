@@ -79,6 +79,11 @@
         "logpath": {
           "type": "string",
           "required": true
+        },
+        "chain": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{0,28}$",
+          "required": true
         }
       }
     }

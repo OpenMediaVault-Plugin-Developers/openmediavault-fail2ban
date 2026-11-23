@@ -53,6 +53,15 @@ data:
         label: _("Log path")
         hint: _("The log file to be scanned by the filter.  Leave blank to scan systemd.")
         value: ""
+      - type: textInput
+        name: chain
+        label: _("Chain")
+        hint: _("The iptables chain the ban rule is added to. Leave blank to use the default chain (INPUT). Use DOCKER-USER for ports published by Docker containers. Port must then be the container port, not the host port.")
+        value: ""
+        validators:
+          pattern:
+            pattern: "^[A-Za-z0-9_-]{0,28}$"
+            errorData: _("Only letters, digits, '-' and '_' are allowed (max. 28 characters).")
     buttons:
       - template: submit
         execute:
