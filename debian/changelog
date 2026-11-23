@@ -1,3 +1,15 @@
+openmediavault-fail2ban (8.0.1) stable; urgency=low
+
+  * Add per-jail chain option
+  * Allow large ban time
+  * Ensure jail name is unique
+  * Improve filters
+  * Improve uninstall
+  * Fix for issue #41
+  * Update locales
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 23 Nov 2026 23:21:54 +0000
+
 openmediavault-fail2ban (8.0) stable; urgency=low
 
   * Update for OMV 8
