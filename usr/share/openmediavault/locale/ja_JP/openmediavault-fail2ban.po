@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2023
+# Toshihiro Kan <kansuke4649@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-31 00:57+0000\n"
+"POT-Creation-Date: 2026-11-23 23:39+0000\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2023\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,9 @@ msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr "IPアドレス、CIDRマスク、DNSホストのいずれでもかまいません。複数のIPを区切るためにはスペースを使用してください。"
+
+msgid "Chain"
+msgstr ""
 
 msgid "Create"
 msgstr "作成"
@@ -109,12 +112,15 @@ msgid "Name"
 msgstr "名前"
 
 msgid "No jail enabled"
-msgstr ""
+msgstr "Jailが有効になっていません"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
 msgstr "IP上で禁止アクションをトリガーする一致(例えば、カウンタの値)の数。"
+
+msgid "Only letters, digits, '-' and '_' are allowed (max. 28 characters)."
+msgstr ""
 
 msgid "Port"
 msgstr "ポート"
@@ -131,8 +137,14 @@ msgid ""
 msgstr "'findtime'秒以内に一致するものがない場合，カウンタは0になります。(604800 = 1週間)。"
 
 msgid ""
-"The log file to be scanned by the filter.  Leave blank to scan systemd."
+"The iptables chain the ban rule is added to. Leave blank to use the default "
+"chain (INPUT). Use DOCKER-USER for ports published by Docker containers. "
+"Port must then be the container port, not the host port."
 msgstr ""
+
+msgid ""
+"The log file to be scanned by the filter.  Leave blank to scan systemd."
+msgstr "フィルタによってスキャンされるログファイル。systemd をスキャンする場合は、空欄のままにしてください。"
 
 msgid "The name of the jail."
 msgstr "Jailの名前"

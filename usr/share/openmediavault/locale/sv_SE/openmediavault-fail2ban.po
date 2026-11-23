@@ -5,16 +5,16 @@
 # 
 # Translators:
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020
-# Karl Jonatan Nyberg, 2026
+# Jonatan Nyberg, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-31 00:57+0000\n"
+"POT-Creation-Date: 2026-11-23 23:39+0000\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: Karl Jonatan Nyberg, 2026\n"
+"Last-Translator: Jonatan Nyberg, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,48 +33,51 @@ msgid "Action"
 msgstr "Åtgärd"
 
 msgid "An email address to receive ban messages."
-msgstr "En e-postadress för att få bannlysningsmeddelanden."
+msgstr "E-postadress som ska ta emot meddelanden om blockeringar."
 
 msgid "Ban Time"
-msgstr "Bannlysningstid"
+msgstr "Blockeringstid"
 
 msgid "Ban time"
-msgstr "Bannlysningstid"
+msgstr "Blockeringstid"
 
 msgid "Ban time in seconds."
-msgstr "Bannlysningstid i sekunder"
+msgstr "Blockeringstid i sekunder."
 
 msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr ""
-"Kan vara en IP-adress, en CIDR-mask eller en DNS-värd, separera med plats "
-"för flera ip."
+"Kan vara en IP-adress, en CIDR-mask eller en DNS-värd. Avgränsa flera IP-"
+"adresser med blanksteg."
+
+msgid "Chain"
+msgstr ""
 
 msgid "Create"
 msgstr "Skapa"
 
 msgid "Created jail."
-msgstr "Skapat fängelse."
+msgstr "Jail-regeln har skapats."
 
 msgid "Date & Time"
-msgstr "Datum & tid"
+msgstr "Datum och tid"
 
 msgid "Dest email"
-msgstr "Destination-e-post"
+msgstr "Mottagaradress"
 
 msgid ""
 "Duration (in seconds) for IP to be banned for. Negative number for "
 "'permanent' ban. (604800 = 1 week)."
 msgstr ""
-"Varaktighet (i sekunder) för IP som ska bannlysas. Negativt tal för "
-"\"permanent\" bannlysning. (604800 = 1 vecka)."
+"Tid i sekunder som IP-adressen ska blockeras. Ange ett negativt tal för "
+"permanent blockering (604800 = en vecka)."
 
 msgid "Edit"
 msgstr "Redigera"
 
 msgid "Edit jail."
-msgstr "Redigera fängelse."
+msgstr "Redigera jail-regel."
 
 msgid "Enable"
 msgstr "Aktivera"
@@ -89,13 +92,13 @@ msgid "Filter"
 msgstr "Filter"
 
 msgid "Find time"
-msgstr "Hitta tid"
+msgstr "Sökintervall"
 
 msgid "Ignore IP"
-msgstr "Ignorera IP"
+msgstr "Undantagna IP-adresser"
 
 msgid "Jails"
-msgstr "Fängelser"
+msgstr "Jail-regler"
 
 msgid "Log Path"
 msgstr "Loggsökväg"
@@ -104,10 +107,10 @@ msgid "Log path"
 msgstr "Loggsökväg"
 
 msgid "Max Retry"
-msgstr "Max antal försök"
+msgstr "Högsta antal försök"
 
 msgid "Max retry"
-msgstr "Max antal försök"
+msgstr "Högsta antal försök"
 
 msgid "Message"
 msgstr "Meddelande"
@@ -116,20 +119,23 @@ msgid "Name"
 msgstr "Namn"
 
 msgid "No jail enabled"
-msgstr ""
+msgstr "Ingen jail är aktiverad"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
 msgstr ""
-"Antal träffar (d.v.s. värdet av räknaren) som utlöser bannlysningsåtgärder "
-"på IP:n."
+"Antal träffar, det vill säga räknarens värde, som utlöser blockering av IP-"
+"adressen."
+
+msgid "Only letters, digits, '-' and '_' are allowed (max. 28 characters)."
+msgstr ""
 
 msgid "Port"
 msgstr "Port"
 
 msgid "Service disabled"
-msgstr "Tjänst inaktiverad"
+msgstr "Tjänsten är inaktiverad"
 
 msgid "Settings"
 msgstr "Inställningar"
@@ -138,26 +144,33 @@ msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
 msgstr ""
-"Räknaren ställs in på noll om ingen matchning hittas inom 'findtime' "
-"sekunder. (604800 = 1 vecka)."
+"Räknaren nollställs om ingen träff hittas inom ”findtime” sekunder (604800 ="
+" en vecka)."
+
+msgid ""
+"The iptables chain the ban rule is added to. Leave blank to use the default "
+"chain (INPUT). Use DOCKER-USER for ports published by Docker containers. "
+"Port must then be the container port, not the host port."
+msgstr ""
 
 msgid ""
 "The log file to be scanned by the filter.  Leave blank to scan systemd."
 msgstr ""
-"Loggfilen som ska skannas av filtret.  Lämna tomt för att skanna systemd."
+"Loggfil som filtret ska söka igenom. Lämna tomt för att söka igenom systemd-"
+"journalen."
 
 msgid "The name of the jail."
-msgstr "Fängelsets namn."
+msgstr "Jail-regelns namn."
 
 msgid "The port of the jail."
-msgstr "Fängelsets port."
+msgstr "Jail-regelns port."
 
 msgid ""
 "action_= ban only / action_mw=ban & send an email / action_mwl=ban & send an"
 " email with whois report and log lines."
 msgstr ""
-"action_ = bannlys bara / action_mw = bannlys och skicka en e-post / "
-"action_mwl = bannlys och skicka en e-post med whois-rapport och loggrader."
+"action_ = blockera endast / action_mw = blockera och skicka e-post / "
+"action_mwl = blockera och skicka e-post med whois-rapport och loggrader."
 
 msgid "fail2ban"
 msgstr "fail2ban"

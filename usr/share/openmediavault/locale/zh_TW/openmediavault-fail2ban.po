@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2024
+# kochin <kochinc@outlook.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-fail2ban\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-31 00:57+0000\n"
+"POT-Creation-Date: 2026-11-23 23:39+0000\n"
 "PO-Revision-Date: 2017-11-26 22:44+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2024\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault-plugin-developers/teams/1854/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,9 @@ msgid ""
 "Can be an IP address, a CIDR mask or a DNS host, separe with space for "
 "multiple ip."
 msgstr "可以是 IP 地址、CIDR 遮罩或 DNS 主機，多個 ip 以空白隔開。"
+
+msgid "Chain"
+msgstr ""
 
 msgid "Create"
 msgstr "新建"
@@ -109,12 +112,15 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "No jail enabled"
-msgstr ""
+msgstr "無被啟用監牢"
 
 msgid ""
 "Number of matches (i.e. value of the counter) which triggers ban action on "
 "the IP."
 msgstr "觸發對該 IP 禁止動作的匹配次數(即計數器的值)。"
+
+msgid "Only letters, digits, '-' and '_' are allowed (max. 28 characters)."
+msgstr ""
 
 msgid "Port"
 msgstr "連接埠"
@@ -129,6 +135,12 @@ msgid ""
 "The counter is set to zero if no match is found within 'findtime' seconds. "
 "(604800 = 1 week)."
 msgstr "若在 '搜尋時間' 秒數內沒有發現匹配，計數器會設成零。（604800 = 1 週）。"
+
+msgid ""
+"The iptables chain the ban rule is added to. Leave blank to use the default "
+"chain (INPUT). Use DOCKER-USER for ports published by Docker containers. "
+"Port must then be the container port, not the host port."
+msgstr ""
 
 msgid ""
 "The log file to be scanned by the filter.  Leave blank to scan systemd."
